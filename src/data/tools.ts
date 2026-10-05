@@ -6,7 +6,7 @@ import { MAX_RELATED_TOOLS } from "@/lib/constants";
  * Registro central de ferramentas. Para adicionar uma nova:
  * 1. crie o componente em `src/features/<área>/` e registre a chave em `src/features/index.tsx`;
  * 2. adicione a entrada abaixo;
- * 3. escreva o conteúdo em `src/content/ferramentas/<categoria>/<slug>.md`.
+ * 3. escreva o conteúdo em `src/content/tools/<category>/<slug>.md`.
  */
 export const tools: Tool[] = [
   {

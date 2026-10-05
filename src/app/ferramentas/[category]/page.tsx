@@ -36,7 +36,7 @@ export default async function CategoryPage({ params }: PageProps<"/ferramentas/[
   if (!category) notFound();
 
   const tools = getToolsByCategory(category.slug);
-  const content = await getPageContent(`categorias/${category.slug}`);
+  const content = await getPageContent(`categories/${category.slug}`);
   const path = categoryPath(category.slug);
 
   return (

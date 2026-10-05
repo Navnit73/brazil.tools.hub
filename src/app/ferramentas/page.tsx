@@ -23,7 +23,7 @@ const description =
 export const metadata: Metadata = buildMetadata({ title, description, path: TOOLS_BASE_PATH });
 
 export default async function ToolsIndexPage() {
-  const content = await getPageContent("paginas/ferramentas");
+  const content = await getPageContent("pages/tools");
   const groups = categories.map((category) => ({ category, tools: getToolsByCategory(category.slug) }));
 
   return (

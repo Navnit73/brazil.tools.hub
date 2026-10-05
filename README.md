@@ -33,7 +33,7 @@ NEXT_PUBLIC_SITE_URL=https://seudominio.com.br
 1. Crie o componente em `src/features/<área>/MinhaFerramenta.tsx` (`"use client"`, `export default`), usando `ToolInput`, `ToolOutput` e `ToolActions`.
 2. Registre a chave em `src/features/index.tsx` (ex.: `"text/word-count"`).
 3. Adicione a entrada em `src/data/tools.ts` (slug, categoria, SEO, `component`, `related`).
-4. Escreva `src/content/ferramentas/<categoria>/<slug>.md`.
+4. Escreva `src/content/tools/<category>/<slug>.md`.
 
 A página, metadados, breadcrumbs, JSON-LD, imagem OG, sitemap e links relacionados são gerados automaticamente. Uma categoria nova exige também o slug em `src/types/category.ts` e a entrada em `src/data/categories.ts`.
 

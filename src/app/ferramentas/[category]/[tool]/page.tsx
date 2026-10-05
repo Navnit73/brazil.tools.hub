@@ -29,7 +29,7 @@ export default async function ToolPage({ params }: PageProps<"/ferramentas/[cate
   const category = getCategory(categorySlug);
   if (!tool || !category) notFound();
 
-  const content = await getPageContent(`ferramentas/${tool.category}/${tool.slug}`);
+  const content = await getPageContent(`tools/${tool.category}/${tool.slug}`);
 
   return <ToolShell tool={tool} category={category} content={content} related={getRelatedTools(tool)} />;
 }

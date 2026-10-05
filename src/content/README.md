@@ -1,17 +1,20 @@
-# Conteúdo em markdown
+# Content (markdown)
 
-Texto editorial das páginas. Título (`<h1>`), metadados e SEO vêm de `src/data/*.ts`;
-aqui fica só o corpo da página.
+Editorial text for each page. The title (`<h1>`), metadata and SEO come from `src/data/*.ts`;
+only the page body lives here. The text itself is written in pt-BR (the site's language).
 
-| Arquivo                                   | Página                                |
-| ----------------------------------------- | ------------------------------------- |
-| `paginas/inicio.md`                       | `/`                                   |
-| `paginas/ferramentas.md`                  | `/ferramentas`                        |
-| `categorias/<categoria>.md`               | `/ferramentas/<categoria>`            |
-| `ferramentas/<categoria>/<ferramenta>.md` | `/ferramentas/<categoria>/<ferramenta>` |
+| File                              | Page                                      |
+| --------------------------------- | ----------------------------------------- |
+| `pages/home.md`                   | `/`                                       |
+| `pages/tools.md`                  | `/ferramentas`                            |
+| `categories/<category>.md`        | `/ferramentas/<category>`                 |
+| `tools/<category>/<tool>.md`      | `/ferramentas/<category>/<tool>`          |
 
-Regras:
+`<category>` and `<tool>` are the URL slugs (e.g. `imagem`, `comprimir-imagem`). Slugs stay in
+Portuguese on purpose: they are public URLs. Only folder names are in English.
 
-- Comece em `##` (o `<h1>` é da página). Um `#` é rebaixado para `##` automaticamente.
-- Uma seção `## Perguntas frequentes` com perguntas em `###` gera o schema FAQPage.
-- Arquivo ausente = página sem texto extra (não quebra o build).
+Rules:
+
+- Start at `##` (the `<h1>` belongs to the page). A `#` is demoted to `##` automatically.
+- A `## Perguntas frequentes` section with `###` questions generates the FAQPage schema.
+- A missing file means a page with no extra text (it does not break the build).

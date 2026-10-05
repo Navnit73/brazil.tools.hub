@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const content = await getPageContent("paginas/inicio");
+  const content = await getPageContent("pages/home");
 
   return (
     <>

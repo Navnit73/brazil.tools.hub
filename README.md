@@ -1,34 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Brasil Tools Hub
 
-## Getting Started
-
-First, run the development server:
+Site de ferramentas online em pt-BR. Next.js 16 (App Router), TypeScript, Tailwind CSS v4, daisyUI 5 e MUI (só onde agrega).
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # build de produção (todas as páginas são estáticas)
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Defina a URL pública em `.env.local` (usada em canonical, sitemap, Open Graph e JSON-LD):
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+NEXT_PUBLIC_SITE_URL=https://seudominio.com.br
+```
 
-## Learn More
+## Estrutura
 
-To learn more about Next.js, take a look at the following resources:
+| Pasta                | Conteúdo                                                                    |
+| -------------------- | --------------------------------------------------------------------------- |
+| `src/app`            | Rotas: `/`, `/ferramentas`, `/ferramentas/[category]`, `/ferramentas/[category]/[tool]`, sitemap, robots, imagens OG |
+| `src/data`           | Registro de categorias, ferramentas e navegação (fonte única da estrutura)   |
+| `src/content`        | Texto das páginas em **markdown** (veja `src/content/README.md`)            |
+| `src/features`       | Componentes interativos de cada ferramenta, carregados sob demanda          |
+| `src/components`     | `layout/`, `navigation/`, `tool/` e `ui/` reutilizáveis                     |
+| `src/lib/seo`        | Metadados, JSON-LD e imagens Open Graph                                     |
+| `src/config`         | Nome do site, URL, padrões de SEO                                           |
+| `src/app/globals.css`| Design tokens (cores, raio de 3px) e mapeamento para daisyUI/Tailwind       |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Adicionar uma ferramenta
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Crie o componente em `src/features/<área>/MinhaFerramenta.tsx` (`"use client"`, `export default`), usando `ToolInput`, `ToolOutput` e `ToolActions`.
+2. Registre a chave em `src/features/index.tsx` (ex.: `"text/word-count"`).
+3. Adicione a entrada em `src/data/tools.ts` (slug, categoria, SEO, `component`, `related`).
+4. Escreva `src/content/ferramentas/<categoria>/<slug>.md`.
 
-## Deploy on Vercel
+A página, metadados, breadcrumbs, JSON-LD, imagem OG, sitemap e links relacionados são gerados automaticamente. Uma categoria nova exige também o slug em `src/types/category.ts` e a entrada em `src/data/categories.ts`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Convenções
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Cores e raios só via tokens de `globals.css` (`bg-surface`, `text-muted`, `border-border`, `bg-primary`, `rounded-sm`…). Raio máximo: 3px.
+- Server Components por padrão; Client Components só para interação.
+- daisyUI para formulários e botões; MUI apenas para controles complexos (envolva com `MuiProvider`). Componentes daisyUI novos precisam entrar no `include` do `globals.css`.
+- Categorias sem ferramentas ficam com `noindex` e fora do sitemap até receberem a primeira ferramenta.
+# brazil.tools.hub

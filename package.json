@@ -11,12 +11,15 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@jsquash/avif": "^2.1.1",
+    "@jsquash/webp": "^1.5.0",
     "@mui/material": "^9.4.0",
     "daisyui": "^5.7.47",
     "marked": "^18.1.0",
     "next": "16.3.8",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "react-image-crop": "^11.1.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

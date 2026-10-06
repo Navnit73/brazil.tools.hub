@@ -7,7 +7,7 @@
 @plugin "daisyui" {
   themes: false;
   include: properties, rootcolor, button, input, select, textarea, fileinput, checkbox, radio, toggle, range,
-    fieldset, label, breadcrumbs, loading, alert, table, join;
+    fieldset, label, breadcrumbs, loading, alert, table, join, progress;
 }
 
 /* ---------------------------------------------------------------------------

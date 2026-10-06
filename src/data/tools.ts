@@ -13,7 +13,7 @@ export const tools: Tool[] = [
     slug: "redimensionar-foto",
     category: "imagem",
     name: "Redimensionar foto",
-    description: "Altere a largura e a altura de fotos em JPG, PNG ou WebP sem perder qualidade.",
+    description: "Altere a largura e a altura de fotos em JPG, PNG, WebP ou AVIF sem perder qualidade.",
     keywords: ["redimensionar foto", "redimensionar imagem online", "mudar tamanho da foto"],
     seo: {
       title: "Redimensionar foto online grátis",
@@ -21,8 +21,8 @@ export const tools: Tool[] = [
         "Redimensione fotos JPG, PNG e WebP online grátis. Defina largura e altura em pixels ou porcentagem, direto no navegador.",
     },
     component: "image/resize",
-    related: ["imagem/comprimir-imagem", "pdf/juntar-pdf"],
-    updatedAt: "2026-10-05",
+    related: ["imagem/comprimir-imagem", "imagem/editor-de-imagem", "imagem/converter-imagem"],
+    updatedAt: "2026-10-06",
   },
   {
     slug: "comprimir-imagem",
@@ -36,8 +36,38 @@ export const tools: Tool[] = [
         "Comprima imagens JPG, PNG e WebP online grátis e reduza o tamanho do arquivo sem perder qualidade visível.",
     },
     component: "image/compress",
-    related: ["imagem/redimensionar-foto"],
-    updatedAt: "2026-10-05",
+    related: ["imagem/redimensionar-foto", "imagem/converter-imagem", "imagem/editor-de-imagem"],
+    updatedAt: "2026-10-06",
+  },
+  {
+    slug: "editor-de-imagem",
+    category: "imagem",
+    name: "Editor de imagem",
+    description: "Corte, gire, redimensione e ajuste brilho, contraste e saturação de fotos no navegador.",
+    keywords: ["editor de imagem online", "cortar foto", "girar imagem", "editar foto online grátis"],
+    seo: {
+      title: "Editor de imagem online grátis",
+      description:
+        "Edite fotos online grátis: corte, gire, espelhe, redimensione e ajuste brilho, contraste e saturação. Sem cadastro e sem enviar a imagem.",
+    },
+    component: "image/editor",
+    related: ["imagem/redimensionar-foto", "imagem/comprimir-imagem", "imagem/converter-imagem"],
+    updatedAt: "2026-10-06",
+  },
+  {
+    slug: "converter-imagem",
+    category: "imagem",
+    name: "Converter imagem",
+    description: "Converta imagens entre JPG, PNG, WebP e AVIF, uma ou várias de uma vez.",
+    keywords: ["converter imagem", "converter png para jpg", "converter webp para jpg", "converter para avif"],
+    seo: {
+      title: "Converter imagem online grátis: JPG, PNG, WebP e AVIF",
+      description:
+        "Converta imagens para JPG, PNG, WebP ou AVIF online grátis, em lote e direto no navegador. Suas fotos não são enviadas a nenhum servidor.",
+    },
+    component: "image/convert",
+    related: ["imagem/comprimir-imagem", "imagem/editor-de-imagem", "imagem/redimensionar-foto"],
+    updatedAt: "2026-10-06",
   },
   {
     slug: "juntar-pdf",

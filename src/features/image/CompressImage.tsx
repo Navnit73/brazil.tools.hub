@@ -1,52 +1,123 @@
 "use client";
 
 import { useId, useState } from "react";
-import Slider from "@mui/material/Slider";
-import { MuiProvider } from "@/components/ui/MuiProvider";
-import { ToolActions } from "@/components/tool/ToolActions";
-import { ToolInput } from "@/components/tool/ToolInput";
-import { ToolOutput } from "@/components/tool/ToolOutput";
-import { TOOL_PENDING_NOTE } from "@/lib/constants";
+import { RangeField } from "@/components/ui/RangeField";
+import { SegmentedControl } from "@/components/ui/SegmentedControl";
+import { ImageBatchTool } from "./components/ImageBatchTool";
+import { useImageBatch } from "./hooks/useImageBatch";
+import { IMAGE_FORMATS, type ImageFormat } from "./lib/formats";
+import { compressImage, resolveOutputFormat } from "./lib/process";
+
+type Mode = "quality" | "size";
+type OutputFormat = ImageFormat | "original";
+
+const modeOptions = [
+  { value: "quality", label: "Por qualidade" },
+  { value: "size", label: "Por tamanho máximo" },
+] as const;
+
+const formatChoices = [
+  { value: "original", label: "Manter formato" },
+  { value: "jpeg", label: "JPG" },
+  { value: "webp", label: "WebP" },
+  { value: "avif", label: "AVIF" },
+] as const;
+
+const maxSideChoices = [
+  { value: "0", label: "Original" },
+  { value: "1920", label: "1920 px" },
+  { value: "1280", label: "1280 px" },
+  { value: "800", label: "800 px" },
+] as const;
 
 export default function CompressImage() {
   const id = useId();
-  const [quality, setQuality] = useState(80);
+  const batch = useImageBatch();
+  const [mode, setMode] = useState<Mode>("quality");
+  const [quality, setQuality] = useState(75);
+  const [targetKb, setTargetKb] = useState(200);
+  const [format, setFormat] = useState<OutputFormat>("original");
+  const [maxSide, setMaxSide] = useState("0");
+
+  /** Qualquer mudança de configuração invalida resultados já gerados. */
+  function change<T>(setter: (value: T) => void) {
+    return (value: T) => {
+      setter(value);
+      batch.resetResults();
+    };
+  }
+
+  const hasPngOutput = batch.items.some((item) => !IMAGE_FORMATS[resolveOutputFormat(item.file, format)].lossy);
+  const validTarget = Number.isFinite(targetKb) && targetKb >= 10;
 
   return (
-    <MuiProvider>
-      <div className="grid gap-6 lg:grid-cols-2">
-        <ToolInput>
-          <fieldset className="fieldset">
-            <legend className="fieldset-legend">Imagens</legend>
-            <input id={`${id}-files`} type="file" multiple accept="image/jpeg,image/png,image/webp" className="file-input w-full" aria-describedby={`${id}-files-hint`} />
-            <p id={`${id}-files-hint`} className="label">Selecione uma ou mais imagens JPG, PNG ou WebP.</p>
-          </fieldset>
+    <ImageBatchTool
+      batch={batch}
+      actionLabel="Comprimir"
+      progressLabel="Comprimindo"
+      emptyTitle="Nenhuma imagem selecionada"
+      canRun={mode === "quality" || validTarget}
+      process={(file) =>
+        compressImage(file, {
+          format,
+          quality: quality / 100,
+          maxSide: Number(maxSide) || undefined,
+          targetBytes: mode === "size" && validTarget ? targetKb * 1024 : undefined,
+        })
+      }
+      settings={
+        <>
+          <SegmentedControl label="Como comprimir" options={modeOptions} value={mode} onChange={change(setMode)} />
 
-          <div>
-            <p id={`${id}-quality`} className="text-sm font-semibold">
-              Qualidade: {quality}%
-            </p>
-            <Slider
+          {mode === "quality" ? (
+            <RangeField
+              label="Qualidade"
               value={quality}
               min={10}
               max={100}
               step={5}
-              aria-labelledby={`${id}-quality`}
-              getAriaValueText={(value) => `${value}%`}
-              onChange={(_, value) => setQuality(value as number)}
+              format={(value) => `${value}%`}
+              hint="Entre 70% e 85% costuma ser o melhor equilíbrio entre peso e nitidez."
+              onChange={change(setQuality)}
             />
-            <p className="text-xs text-muted">Valores menores geram arquivos mais leves, com menos detalhes.</p>
-          </div>
+          ) : (
+            <div className="flex flex-col gap-1 text-sm">
+              <label htmlFor={`${id}-target`} className="font-semibold">
+                Tamanho máximo de cada arquivo
+              </label>
+              <div className="join w-full max-w-60">
+                <input
+                  id={`${id}-target`}
+                  type="number"
+                  min={10}
+                  step={10}
+                  inputMode="numeric"
+                  value={Number.isNaN(targetKb) ? "" : targetKb}
+                  onChange={(event) => change(setTargetKb)(event.target.valueAsNumber)}
+                  className="input join-item min-h-11 w-full"
+                  aria-describedby={`${id}-target-hint`}
+                  aria-invalid={!validTarget}
+                />
+                <span className="join-item flex items-center border border-border-strong bg-surface px-3 font-semibold">KB</span>
+              </div>
+              <p id={`${id}-target-hint`} className={validTarget ? "text-xs text-muted" : "text-xs text-error"}>
+                {validTarget
+                  ? "Ideal para formulários com limite de tamanho. A qualidade é ajustada automaticamente."
+                  : "Informe pelo menos 10 KB."}
+              </p>
+            </div>
+          )}
 
-          <ToolActions note={TOOL_PENDING_NOTE}>
-            <button type="button" className="btn btn-primary" disabled>
-              Comprimir
-            </button>
-          </ToolActions>
-        </ToolInput>
+          <SegmentedControl label="Formato do arquivo" options={formatChoices} value={format} onChange={change(setFormat)} />
+          {hasPngOutput && mode === "quality" && (
+            <p className="-mt-2 text-xs text-muted">
+              PNG não tem ajuste de qualidade. Para arquivos bem menores, escolha WebP ou reduza as dimensões.
+            </p>
+          )}
 
-        <ToolOutput placeholder="O tamanho original, o novo tamanho e a economia aparecerão aqui." />
-      </div>
-    </MuiProvider>
+          <SegmentedControl label="Reduzir dimensões (lado maior)" options={maxSideChoices} value={maxSide} onChange={change(setMaxSide)} />
+        </>
+      }
+    />
   );
 }

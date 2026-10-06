@@ -14,6 +14,8 @@ export interface FaqItem {
 
 export interface PageContent {
   html: string;
+  /** HTML até (sem incluir) a seção `## Perguntas frequentes` — útil para renderizar o FAQ à parte. */
+  introHtml: string;
   faq: FaqItem[];
 }
 
@@ -26,10 +28,12 @@ function stripTags(html: string): string {
 }
 
 /** Extrai perguntas `###` da seção `## Perguntas frequentes` para o schema FAQPage. */
+function findFaqStart(tokens: Token[]): number {
+  return tokens.findIndex((token) => token.type === "heading" && token.depth === 2 && FAQ_HEADING.test(token.text.trim()));
+}
+
 function extractFaq(tokens: Token[], links: Links): FaqItem[] {
-  const start = tokens.findIndex(
-    (token) => token.type === "heading" && token.depth === 2 && FAQ_HEADING.test(token.text.trim()),
-  );
+  const start = findFaqStart(tokens);
   if (start === -1) return [];
 
   const faq: FaqItem[] = [];
@@ -70,5 +74,10 @@ export const getPageContent = cache(async (relativePath: string): Promise<PageCo
     }
   }
 
-  return { html: toHtml([...tokens], tokens.links), faq: extractFaq(tokens, tokens.links) };
+  const faqStart = findFaqStart(tokens);
+  return {
+    html: toHtml([...tokens], tokens.links),
+    introHtml: toHtml(faqStart === -1 ? [...tokens] : tokens.slice(0, faqStart), tokens.links),
+    faq: extractFaq(tokens, tokens.links),
+  };
 });

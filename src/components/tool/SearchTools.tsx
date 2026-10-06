@@ -2,6 +2,7 @@
 
 import { useId, useMemo, useState, type KeyboardEvent } from "react";
 import { useRouter } from "next/navigation";
+import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/utils";
 
 export interface SearchItem {
@@ -15,6 +16,8 @@ export interface SearchItem {
 interface SearchToolsProps {
   items: SearchItem[];
   maxResults?: number;
+  /** `hero`: campo maior, com ícone, para destaque na página inicial. */
+  size?: "default" | "hero";
 }
 
 /** Remove acentos e caixa para que "calculo" encontre "Cálculo". */
@@ -23,7 +26,8 @@ function normalize(value: string) {
 }
 
 /** Combobox acessível (padrão WAI-ARIA) sem dependências. */
-export function SearchTools({ items, maxResults = 8 }: SearchToolsProps) {
+export function SearchTools({ items, maxResults = 8, size = "default" }: SearchToolsProps) {
+  const hero = size === "hero";
   const router = useRouter();
   const id = useId();
   const listId = `${id}-lista`;
@@ -73,10 +77,16 @@ export function SearchTools({ items, maxResults = 8 }: SearchToolsProps) {
   }
 
   return (
-    <div className="relative w-full max-w-xl" role="search">
+    <div className={cn("relative w-full", hero ? "max-w-2xl" : "max-w-xl")} role="search">
       <label htmlFor={`${id}-input`} className="sr-only">
         Buscar ferramentas
       </label>
+      {hero && (
+        <Icon
+          name="search"
+          className="pointer-events-none absolute left-4 top-1/2 z-10 size-5 -translate-y-1/2 text-muted"
+        />
+      )}
       <input
         id={`${id}-input`}
         type="search"
@@ -84,7 +94,10 @@ export function SearchTools({ items, maxResults = 8 }: SearchToolsProps) {
         autoComplete="off"
         spellCheck={false}
         placeholder="Buscar ferramenta (ex.: juntar pdf, pix, porcentagem)"
-        className="input input-bordered w-full"
+        className={cn(
+          "input input-bordered w-full text-text",
+          hero && "h-14 border-white/20 pl-12 text-base shadow-[0_20px_50px_-15px_rgb(0_0_0/0.5)] sm:text-lg",
+        )}
         value={query}
         aria-expanded={expanded}
         aria-controls={listId}
@@ -105,7 +118,7 @@ export function SearchTools({ items, maxResults = 8 }: SearchToolsProps) {
         role="listbox"
         aria-label="Resultados da busca"
         hidden={!expanded}
-        className="absolute inset-x-0 top-full z-30 mt-1 max-h-96 overflow-y-auto rounded-sm border border-border bg-background shadow-sm"
+        className="absolute inset-x-0 top-full z-30 mt-1 max-h-96 overflow-y-auto rounded-sm border border-border bg-background text-left text-text shadow-lg"
       >
         {results.length === 0 ? (
           <li role="option" aria-selected={false} aria-disabled className="px-3 py-2 text-sm text-muted">

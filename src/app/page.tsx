@@ -98,7 +98,7 @@ export default async function HomePage() {
                 </p>
 
                 <h1 className="mt-6 font-display text-[2.25rem] font-normal leading-[2.75rem] tracking-[-0.02em] text-balance sm:text-5xl sm:leading-[3.5rem] lg:text-[3.5rem] lg:leading-[4rem]">
-                  Ferramentas online grátis para <span className="font-medium text-primary-dark">o seu dia a dia</span>
+                  Ferramentas Online Grátis para <span className="font-medium text-primary-dark">o Dia a Dia</span>
                 </h1>
                 <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-pretty opacity-80 sm:text-lg lg:mx-0">
                   Imagens, PDF, calculadoras, Pix, documentos, WhatsApp e texto. Tudo rápido, simples e sem cadastro.
@@ -290,7 +290,7 @@ export default async function HomePage() {
       </section>
 
       {content && (
-        <Container className="grid gap-10 pb-14 sm:pb-20 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
+        <Container className="grid gap-10 pb-14 sm:pb-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:gap-16">
           <div>
             <p className="text-sm font-medium text-primary">Sobre</p>
             <MarkdownContent
@@ -299,7 +299,11 @@ export default async function HomePage() {
             />
           </div>
 
-          {content.faq.length > 0 && <FaqList id="faq" items={content.faq} />}
+          {content.faq.length > 0 && (
+            <div className="lg:sticky lg:top-[calc(var(--header-height)+1.5rem)] lg:self-start">
+              <FaqList id="faq" items={content.faq} />
+            </div>
+          )}
         </Container>
       )}
 

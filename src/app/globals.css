@@ -295,8 +295,23 @@
     line-height: 1.4;
   }
 
-  .content-prose h3 + p {
+  .content-prose h4 {
+    margin-top: 1.25rem;
+    color: var(--md-on-surface);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .content-prose h3 + p,
+  .content-prose h4 + p {
     margin-top: 0.5rem;
+  }
+
+  .content-prose blockquote {
+    border-left: 3px solid var(--md-outline-variant);
+    padding-left: 1rem;
+    font-size: 0.875rem;
   }
 
   .content-prose ul,

@@ -31,6 +31,25 @@
   --color-danger: #b91c1c;
   --color-focus: #15803d;
 
+  /* Material 3 (home): papéis tonais derivados do verde primário + amarelo terciário. */
+  --md-primary-container: #c4eed0;
+  --md-on-primary-container: #0b3b1d;
+  --md-secondary-container: #d6e8d8;
+  --md-on-secondary-container: #112016;
+  --md-tertiary-container: #ffe08c;
+  --md-on-tertiary-container: #2a1f00;
+  --md-surface-lowest: #ffffff;
+  --md-surface-low: #f2f6f0;
+  --md-surface-container: #ecf0ea;
+  --md-surface-high: #e6ebe4;
+  --md-on-surface: #181d19;
+  --md-on-surface-variant: #414941;
+  --md-outline: #717970;
+  --md-outline-variant: #c1c9bf;
+  --md-inverse-surface: #2c322d;
+  --md-inverse-on-surface: #eef2ec;
+  --md-inverse-primary: #8fd8a3;
+
   --radius: 3px;
   --header-height: 3.5rem;
   --container-max: 72rem;
@@ -77,13 +96,31 @@
   --color-primary-dark: var(--color-primary-dark);
   --color-primary-light: var(--color-primary-light);
   --color-on-primary: var(--color-on-primary);
+
+  --color-md-primary-container: var(--md-primary-container);
+  --color-md-on-primary-container: var(--md-on-primary-container);
+  --color-md-secondary-container: var(--md-secondary-container);
+  --color-md-on-secondary-container: var(--md-on-secondary-container);
+  --color-md-tertiary-container: var(--md-tertiary-container);
+  --color-md-on-tertiary-container: var(--md-on-tertiary-container);
+  --color-md-surface-lowest: var(--md-surface-lowest);
+  --color-md-surface-low: var(--md-surface-low);
+  --color-md-surface-container: var(--md-surface-container);
+  --color-md-surface-high: var(--md-surface-high);
+  --color-md-on-surface: var(--md-on-surface);
+  --color-md-on-surface-variant: var(--md-on-surface-variant);
+  --color-md-outline: var(--md-outline);
+  --color-md-outline-variant: var(--md-outline-variant);
+  --color-md-inverse-surface: var(--md-inverse-surface);
+  --color-md-inverse-on-surface: var(--md-inverse-on-surface);
+  --color-md-inverse-primary: var(--md-inverse-primary);
 }
 
 /* Raio máximo de 3px em toda a escala do Tailwind. */
 @theme {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  /* Títulos de destaque (home). */
-  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Títulos de destaque (home, cards). */
+  --font-display: var(--font-roboto), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --animate-float: float 7s ease-in-out infinite;
   --animate-float-slow: float 9s ease-in-out infinite;
 
@@ -105,6 +142,47 @@
   --radius-3xl: var(--radius);
   --radius-4xl: var(--radius);
   --container-site: var(--container-max);
+
+  /* Formas (rounded-m-*) limitadas a 4px e elevação do Material 3 (shadow-m*). */
+  --radius-m-xs: 2px;
+  --radius-m-sm: 4px;
+  --radius-m-md: 4px;
+  --radius-m-lg: 4px;
+  --radius-m-xl: 4px;
+  --shadow-m1: 0 1px 2px 0 rgb(0 0 0 / 0.3), 0 1px 3px 1px rgb(0 0 0 / 0.15);
+  --shadow-m2: 0 1px 2px 0 rgb(0 0 0 / 0.3), 0 2px 6px 2px rgb(0 0 0 / 0.15);
+  --shadow-m3: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 4px 8px 3px rgb(0 0 0 / 0.15);
+}
+
+/* Camada de estado do Material 3: véu da cor do texto em hover/foco/clique. */
+@utility state-layer {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background-color: currentColor;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 150ms ease;
+  }
+
+  &:hover::before {
+    opacity: 0.08;
+  }
+
+  &:focus-within::before,
+  &:focus-visible::before {
+    opacity: 0.1;
+  }
+
+  &:active::before {
+    opacity: 0.12;
+  }
 }
 
 @layer base {
@@ -119,6 +197,25 @@
     font-family: var(--font-sans);
     line-height: 1.6;
     text-rendering: optimizeLegibility;
+  }
+
+  /* Tailwind v4 usa cursor padrão em botões; tudo que é clicável mostra a mãozinha. */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [role="option"]:not([aria-disabled]),
+  summary,
+  label[for],
+  select,
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="file"],
+  input[type="range"] {
+    cursor: pointer;
+  }
+
+  :disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
   }
 
   :focus-visible {

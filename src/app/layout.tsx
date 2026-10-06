@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Roboto } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { seoConfig } from "@/config/seo";
@@ -7,7 +7,7 @@ import { siteConfig } from "@/config/site";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], display: "swap", variable: "--font-jakarta" });
+const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"], display: "swap", variable: "--font-roboto" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -32,7 +32,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang={siteConfig.language} className={`${inter.variable} ${jakarta.variable}`}>
+    <html lang={siteConfig.language} className={`${inter.variable} ${roboto.variable}`}>
       <body className="flex min-h-dvh flex-col antialiased">
         <a
           href="#conteudo"

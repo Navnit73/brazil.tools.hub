@@ -3,21 +3,17 @@ import type { CategorySlug } from "@/types/category";
 
 interface CategoryVisual {
   icon: IconName;
-  /** Gradiente do "selo" do ícone (usar com `bg-linear-to-br`). */
-  gradient: string;
-  /** Sombra colorida do selo. */
-  glow: string;
-  /** Fundo suave para destaques. */
-  soft: string;
+  /** Contêiner tonal do Material 3: fundo claro + cor "on-container" (ícones e chips). */
+  tone: string;
 }
 
 /** Identidade visual de cada categoria (classes estáticas para o Tailwind detectar). */
 export const categoryVisuals: Record<CategorySlug, CategoryVisual> = {
-  imagem: { icon: "image", gradient: "from-violet-500 to-fuchsia-500", glow: "shadow-violet-500/30", soft: "bg-violet-50" },
-  pdf: { icon: "pdf", gradient: "from-rose-500 to-orange-400", glow: "shadow-rose-500/30", soft: "bg-rose-50" },
-  calculadoras: { icon: "calculator", gradient: "from-amber-400 to-orange-500", glow: "shadow-amber-500/30", soft: "bg-amber-50" },
-  pix: { icon: "pix", gradient: "from-teal-400 to-cyan-600", glow: "shadow-teal-500/30", soft: "bg-teal-50" },
-  documentos: { icon: "document", gradient: "from-sky-500 to-indigo-500", glow: "shadow-sky-500/30", soft: "bg-sky-50" },
-  whatsapp: { icon: "chat", gradient: "from-green-500 to-emerald-600", glow: "shadow-green-500/30", soft: "bg-green-50" },
-  texto: { icon: "text", gradient: "from-slate-600 to-slate-800", glow: "shadow-slate-500/30", soft: "bg-slate-100" },
+  imagem: { icon: "image", tone: "bg-sky-100 text-sky-900" },
+  pdf: { icon: "pdf", tone: "bg-red-100 text-red-900" },
+  calculadoras: { icon: "calculator", tone: "bg-amber-100 text-amber-900" },
+  pix: { icon: "pix", tone: "bg-teal-100 text-teal-900" },
+  documentos: { icon: "document", tone: "bg-orange-100 text-orange-900" },
+  whatsapp: { icon: "chat", tone: "bg-green-100 text-green-900" },
+  texto: { icon: "text", tone: "bg-stone-200 text-stone-800" },
 };

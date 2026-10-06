@@ -29,20 +29,20 @@ function Finder({ x, y }: { x: number; y: number }) {
 /** Composição decorativa do hero: prévias das ferramentas em uso. */
 export function HeroPreview() {
   return (
-    <div aria-hidden="true" className="relative mx-auto h-[32rem] w-full max-w-lg select-none">
+    <div aria-hidden="true" className="relative mx-auto h-[30rem] w-full max-w-lg select-none lg:h-[32rem]">
       {/* Card principal: compressão de imagem */}
-      <div className="absolute left-0 top-12 z-10 w-[18rem] animate-float rounded-[1.5rem] border border-slate-200/80 bg-white/90 p-5 shadow-[0_30px_60px_-25px_rgb(15_23_42/0.35)] backdrop-blur">
+      <div className="absolute left-0 top-12 z-10 w-[18rem] animate-float rounded-m-xl bg-md-surface-lowest p-5 shadow-m3">
         <div className="flex items-center gap-3">
-          <span className="grid size-10 place-items-center rounded-[0.75rem] bg-linear-to-br from-violet-500 to-fuchsia-500 text-white shadow-lg shadow-violet-500/30">
+          <span className="grid size-10 place-items-center rounded-m-md bg-sky-100 text-sky-900">
             <Icon name="image" className="size-5" />
           </span>
           <div className="min-w-0">
-            <p className="text-sm font-semibold text-slate-900">foto-praia.jpg</p>
-            <p className="text-xs text-slate-500">Comprimir imagem</p>
+            <p className="text-sm font-medium text-md-on-surface">foto-praia.jpg</p>
+            <p className="text-xs text-md-on-surface-variant">Comprimir imagem</p>
           </div>
-          <span className="ml-auto rounded-full bg-green-100 px-2 py-0.5 text-xs font-bold text-green-700">-84%</span>
+          <span className="ml-auto rounded-m-sm bg-md-primary-container px-2 py-0.5 text-xs font-medium text-md-on-primary-container">-84%</span>
         </div>
-        <div className="mt-4 aspect-[16/9] overflow-hidden rounded-[1rem] bg-linear-to-br from-sky-300 via-cyan-200 to-amber-100">
+        <div className="mt-4 aspect-[16/9] overflow-hidden rounded-m-lg bg-linear-to-br from-sky-300 via-cyan-200 to-amber-100">
           <div className="relative h-full w-full">
             <div className="absolute right-6 top-4 size-8 rounded-full bg-yellow-200 shadow-[0_0_30px_rgb(253_224_71/0.9)]" />
             <div className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-sky-600/70 to-sky-400/40 [clip-path:polygon(0_40%,20%_25%,45%_45%,70%_20%,100%_40%,100%_100%,0_100%)]" />
@@ -50,21 +50,21 @@ export function HeroPreview() {
           </div>
         </div>
         <div className="mt-4 flex items-center justify-between text-xs">
-          <span className="text-slate-500 line-through">2,4 MB</span>
-          <span className="font-semibold text-slate-900">380 KB</span>
+          <span className="text-md-on-surface-variant line-through">2,4 MB</span>
+          <span className="font-medium text-md-on-surface">380 KB</span>
         </div>
-        <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-100">
-          <div className="h-full w-full rounded-full bg-linear-to-r from-green-500 to-emerald-400" />
+        <div className="mt-2 h-1 overflow-hidden rounded-m-xs bg-md-primary-container">
+          <div className="h-full w-full bg-primary" />
         </div>
       </div>
 
       {/* Card Pix */}
-      <div className="absolute right-0 top-0 w-44 animate-float-slow rounded-[1.5rem] border border-slate-200/80 bg-white p-4 shadow-[0_30px_60px_-25px_rgb(15_23_42/0.35)] [animation-delay:-3s]">
+      <div className="absolute right-0 top-0 w-44 animate-float-slow rounded-m-xl bg-md-surface-lowest p-4 shadow-m2 [animation-delay:-3s]">
         <div className="flex items-center gap-2">
-          <span className="grid size-7 place-items-center rounded-[0.5rem] bg-linear-to-br from-teal-400 to-cyan-600 text-white">
+          <span className="grid size-7 place-items-center rounded-m-sm bg-teal-100 text-teal-900">
             <Icon name="pix" className="size-4" />
           </span>
-          <p className="text-xs font-semibold text-slate-900">QR Code Pix</p>
+          <p className="text-xs font-medium text-md-on-surface">QR Code Pix</p>
         </div>
         <svg viewBox={`-1 -1 ${QR_SIZE + 2} ${QR_SIZE + 2}`} className="mt-3 w-full text-slate-900">
           <rect x={-1} y={-1} width={QR_SIZE + 2} height={QR_SIZE + 2} rx={2} fill="white" />
@@ -75,22 +75,22 @@ export function HeroPreview() {
           <Finder x={QR_SIZE - 7} y={0} />
           <Finder x={0} y={QR_SIZE - 7} />
         </svg>
-        <p className="mt-2 text-center font-display text-lg font-extrabold text-slate-900">R$ 150,00</p>
+        <p className="mt-2 text-center font-display text-lg font-medium text-md-on-surface">R$ 150,00</p>
       </div>
 
       {/* Card calculadora */}
-      <div className="absolute bottom-6 right-0 z-20 w-60 animate-float rounded-[1.5rem] bg-slate-950 p-5 text-white shadow-[0_30px_60px_-20px_rgb(15_23_42/0.6)] [animation-delay:-1.5s]">
-        <div className="flex items-center gap-2 text-xs text-slate-400">
-          <Icon name="calculator" className="size-4 text-amber-400" />
+      <div className="absolute bottom-6 right-0 z-20 w-60 animate-float rounded-m-xl bg-md-inverse-surface p-5 text-md-inverse-on-surface shadow-m3 [animation-delay:-1.5s]">
+        <div className="flex items-center gap-2 text-xs text-md-inverse-on-surface/70">
+          <Icon name="calculator" className="size-4 text-md-inverse-primary" />
           Calculadora de porcentagem
         </div>
-        <p className="mt-3 text-sm text-slate-300">15% de R$ 2.400</p>
-        <p className="font-display text-3xl font-extrabold tracking-tight">R$ 360,00</p>
+        <p className="mt-3 text-sm text-md-inverse-on-surface/80">15% de R$ 2.400</p>
+        <p className="font-display text-3xl font-medium">R$ 360,00</p>
       </div>
 
       {/* Selo de privacidade */}
-      <div className="absolute bottom-10 left-2 z-20 flex animate-float-slow items-center gap-2 rounded-full border border-green-200 bg-white px-3.5 py-2 text-xs font-semibold text-green-800 shadow-lg [animation-delay:-5s]">
-        <Icon name="shield" className="size-4 text-green-600" />
+      <div className="absolute bottom-10 left-2 z-20 flex animate-float-slow items-center gap-2 rounded-m-sm bg-md-tertiary-container px-3 py-2 text-xs font-medium text-md-on-tertiary-container shadow-m2 [animation-delay:-5s]">
+        <Icon name="shield" className="size-4" />
         Processado no seu navegador
       </div>
     </div>

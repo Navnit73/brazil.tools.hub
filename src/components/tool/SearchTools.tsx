@@ -84,7 +84,7 @@ export function SearchTools({ items, maxResults = 8, size = "default" }: SearchT
       {hero && (
         <Icon
           name="search"
-          className="pointer-events-none absolute left-5 top-8 z-10 size-5 -translate-y-1/2 text-slate-400"
+          className="pointer-events-none absolute left-5 top-7 z-10 size-5 -translate-y-1/2 text-md-on-surface-variant"
         />
       )}
       <input
@@ -97,7 +97,7 @@ export function SearchTools({ items, maxResults = 8, size = "default" }: SearchT
         className={cn(
           "input input-bordered w-full text-text",
           hero &&
-            "h-16 rounded-[1rem] border-slate-200 bg-white pl-13 pr-4 text-base shadow-[0_20px_50px_-20px_rgb(15_23_42/0.35)] focus:border-primary sm:text-lg",
+            "h-14 rounded-m-sm border-transparent bg-md-surface-lowest pl-13 pr-5 text-base shadow-m1 transition-shadow focus-within:border-transparent focus-within:shadow-m3",
         )}
         value={query}
         aria-expanded={expanded}
@@ -121,7 +121,7 @@ export function SearchTools({ items, maxResults = 8, size = "default" }: SearchT
         hidden={!expanded}
         className={cn(
           "absolute inset-x-0 top-full z-30 max-h-96 overflow-y-auto border border-border bg-background text-left text-text shadow-lg",
-          hero ? "mt-2 rounded-[1rem] p-1.5" : "mt-1 rounded-sm",
+          hero ? "mt-2 rounded-m-lg border-none py-2 shadow-m2" : "mt-1 rounded-sm",
         )}
       >
         {results.length === 0 ? (
@@ -141,7 +141,7 @@ export function SearchTools({ items, maxResults = 8, size = "default" }: SearchT
                 go(item);
               }}
               onMouseEnter={() => setActiveIndex(itemIndex)}
-              className={cn("cursor-pointer px-3 py-2", hero && "rounded-[0.75rem]", itemIndex === activeIndex && "bg-primary-light")}
+              className={cn("cursor-pointer px-3 py-2", hero && "px-5", itemIndex === activeIndex && (hero ? "bg-md-secondary-container" : "bg-primary-light"))}
             >
               <span className="block text-sm font-medium">{item.name}</span>
               <span className="block text-xs text-muted">{item.category}</span>

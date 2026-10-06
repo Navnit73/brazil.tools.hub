@@ -14,6 +14,6 @@ export const seoConfig = {
   // Códigos de verificação via variável de ambiente (vazios = tag não é gerada).
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
-    bing: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION || undefined,
+    bing: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION || "6BFE4F80CD650E2E0CA99EA3C6C7664F",
   },
 } as const;

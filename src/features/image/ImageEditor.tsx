@@ -186,7 +186,7 @@ export default function ImageEditor({ initialPanel = "crop" }: ImageEditorProps)
   return (
     <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-6">
       <section aria-label="Prévia" className="flex min-w-0 flex-col gap-2">
-        <div className="flex min-h-64 items-center justify-center overflow-hidden rounded-sm border border-border p-2" style={checkerboard}>
+        <div className="flex min-h-64 items-center justify-center overflow-hidden rounded-m-md border border-md-outline-variant p-2" style={checkerboard}>
           <ReactCrop
             crop={state.crop ? { unit: "%", ...state.crop } : undefined}
             aspect={ASPECTS[state.aspect].ratio}
@@ -208,12 +208,16 @@ export default function ImageEditor({ initialPanel = "crop" }: ImageEditorProps)
             />
           </ReactCrop>
         </div>
-        <p className="text-xs text-muted">
-          <span className="font-medium text-text">{file.name}</span> · {image.width} × {image.height} px · {formatBytes(file.size)}
+        <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-md-on-surface-variant">
+          <span className="min-w-0 truncate font-medium text-md-on-surface">{file.name}</span>
+          <span className="rounded-m-xs bg-md-surface-high px-1.5 py-0.5 tabular-nums">
+            {image.width} × {image.height} px
+          </span>
+          <span className="rounded-m-xs bg-md-surface-high px-1.5 py-0.5 tabular-nums">{formatBytes(file.size)}</span>
         </p>
       </section>
 
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 rounded-m-md bg-md-surface-low p-4 sm:p-5">
         <SegmentedControl label="O que você quer fazer?" options={panelOptions} value={panel} onChange={setPanel} />
 
         <div>
@@ -237,7 +241,7 @@ export default function ImageEditor({ initialPanel = "crop" }: ImageEditorProps)
           )}
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-border pt-5">
+        <div className="flex flex-col gap-4 border-t border-md-outline-variant pt-5">
           <SegmentedControl
             label="Salvar como"
             options={formatOptions}
@@ -261,9 +265,9 @@ export default function ImageEditor({ initialPanel = "crop" }: ImageEditorProps)
               }}
             />
           )}
-          <p className="text-sm">
-            Tamanho final:{" "}
-            <strong className="tabular-nums">
+          <p className="flex items-center justify-between gap-2 rounded-m-sm bg-md-surface-lowest px-3 py-2 text-sm text-md-on-surface-variant">
+            Tamanho final
+            <strong className="font-medium tabular-nums text-md-on-surface">
               {output.width} × {output.height} px
             </strong>
           </p>
@@ -276,7 +280,7 @@ export default function ImageEditor({ initialPanel = "crop" }: ImageEditorProps)
           )}
 
           {/* No celular, a ação principal fica sempre ao alcance do polegar. */}
-          <div className="sticky bottom-0 z-10 -mx-1 flex flex-col gap-2 bg-background px-1 py-3 lg:static lg:p-0">
+          <div className="sticky bottom-0 z-10 -mx-4 flex flex-col gap-2 border-t border-md-outline-variant bg-md-surface-low px-4 py-3 sm:-mx-5 sm:px-5 lg:static lg:mx-0 lg:border-0 lg:p-0">
             <button type="button" className="btn btn-primary min-h-12 w-full" disabled={exporting} onClick={download}>
               {exporting && <span className="loading loading-spinner loading-sm" aria-hidden="true" />}
               {exporting ? "Gerando imagem…" : `Baixar ${formatLabel}`}

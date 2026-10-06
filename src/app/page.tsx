@@ -6,6 +6,7 @@ import { CategoryCard } from "@/components/tool/CategoryCard";
 import { categoryVisuals } from "@/components/tool/categoryVisuals";
 import { SearchTools } from "@/components/tool/SearchTools";
 import { ToolGrid } from "@/components/tool/ToolGrid";
+import { FaqList } from "@/components/ui/FaqList";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { MarkdownContent } from "@/components/ui/MarkdownContent";
@@ -298,27 +299,7 @@ export default async function HomePage() {
             />
           </div>
 
-          {content.faq.length > 0 && (
-            <section aria-labelledby="faq">
-              <h2 id="faq" className="font-display text-[1.75rem] font-normal leading-tight sm:text-[2rem]">
-                Perguntas frequentes
-              </h2>
-              <div className="mt-6 space-y-2">
-                {content.faq.map((item) => (
-                  <details
-                    key={item.question}
-                    className="group rounded-m-lg bg-md-surface-low transition-colors open:bg-md-surface-container [&_summary::-webkit-details-marker]:hidden"
-                  >
-                    <summary className="state-layer flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 rounded-m-lg px-5 py-4 font-medium">
-                      {item.question}
-                      <Icon name="chevronDown" className="size-5 shrink-0 text-md-on-surface-variant transition-transform group-open:rotate-180" />
-                    </summary>
-                    <p className="px-5 pb-5 leading-relaxed text-md-on-surface-variant">{item.answer}</p>
-                  </details>
-                ))}
-              </div>
-            </section>
-          )}
+          {content.faq.length > 0 && <FaqList id="faq" items={content.faq} />}
         </Container>
       )}
 

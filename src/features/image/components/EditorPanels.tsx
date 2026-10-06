@@ -26,7 +26,7 @@ export function CropPanel({
   return (
     <div className="flex flex-col gap-4">
       <SegmentedControl label="Proporção" options={aspectOptions} value={aspect} onChange={onAspectChange} />
-      <p className="text-xs text-muted">
+      <p className="text-xs text-md-on-surface-variant">
         Arraste sobre a imagem para marcar a área e use os cantos para ajustar. No teclado, selecione a área e use as setas.
       </p>
       {hasCrop ? (
@@ -55,7 +55,7 @@ export function RotatePanel({ onRotate, onFlip }: { onRotate: (clockwise: boolea
 
 function IconButton({ label, icon, onClick }: { label: string; icon: ReactNode; onClick: () => void }) {
   return (
-    <button type="button" className="btn btn-outline h-auto min-h-16 flex-col gap-1 py-2 text-xs" onClick={onClick}>
+    <button type="button" className="btn h-auto min-h-16 flex-col gap-1 border-md-outline-variant bg-md-surface-lowest py-2 text-xs font-medium text-md-on-surface hover:bg-md-secondary-container" onClick={onClick}>
       <svg
         aria-hidden="true"
         viewBox="0 0 24 24"
@@ -139,7 +139,7 @@ function DimensionInput({ label, value, max, onCommit }: { label: string; value:
 
   return (
     <div className="flex flex-col gap-1 text-sm">
-      <label htmlFor={id} className="font-semibold">
+      <label htmlFor={id} className="font-medium text-md-on-surface">
         {label} (px)
       </label>
       <input
@@ -155,7 +155,7 @@ function DimensionInput({ label, value, max, onCommit }: { label: string; value:
           if (number >= 1) onCommit(number);
         }}
         onBlur={() => setDraft(null)}
-        className="input min-h-11 w-full"
+        className="input min-h-11 w-full bg-md-surface-lowest tabular-nums"
       />
     </div>
   );

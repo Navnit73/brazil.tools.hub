@@ -35,18 +35,18 @@ export function SegmentedControl<T extends string>({
 
   return (
     <fieldset disabled={disabled} className="min-w-0">
-      <legend className={cn("mb-2 text-sm font-semibold", hideLabel && "sr-only")}>{label}</legend>
+      <legend className={cn("mb-2 text-sm font-medium text-md-on-surface", hideLabel && "sr-only")}>{label}</legend>
       <div className="flex flex-wrap gap-2">
         {options.map((option) => (
           <label
             key={option.value}
             className={cn(
-              "flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-sm border px-3 text-sm font-medium select-none",
+              "flex min-h-10 min-w-11 cursor-pointer items-center justify-center gap-1.5 rounded-m-sm border px-3 text-sm font-medium select-none",
               "has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-primary",
               "has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50",
               option.value === value
-                ? "border-primary bg-primary text-on-primary"
-                : "border-border-strong bg-background hover:border-primary",
+                ? "border-transparent bg-md-secondary-container text-md-on-secondary-container"
+                : "border-md-outline-variant bg-md-surface-lowest text-md-on-surface-variant hover:bg-md-surface-low",
             )}
           >
             <input
@@ -58,6 +58,12 @@ export function SegmentedControl<T extends string>({
               onChange={() => onChange(option.value)}
               className="sr-only"
             />
+            {/* Chip de filtro do M3: o selecionado ganha um check. */}
+            {option.value === value && (
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.25">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M20 6 9 17l-5-5" />
+              </svg>
+            )}
             {option.label}
           </label>
         ))}

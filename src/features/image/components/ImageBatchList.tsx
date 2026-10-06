@@ -28,7 +28,7 @@ export function ImageBatchList({ items, onRemove }: ImageBatchListProps) {
   return (
     <div className="flex flex-col gap-3">
       {done.length > 1 && (
-        <div className="flex flex-wrap items-center justify-between gap-3 rounded-sm bg-primary-light p-3 text-sm">
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-m-md bg-md-primary-container p-3 text-sm text-md-on-primary-container">
           <p>
             <strong>{done.length} imagens prontas.</strong> Total: {formatBytes(before)} → {formatBytes(after)}
             <SavingsText before={before} after={after} />
@@ -52,8 +52,8 @@ function BatchRow({ item, onRemove }: { item: BatchItem; onRemove?: (id: string)
   const { result } = item;
 
   return (
-    <li className="flex items-center gap-3 rounded-sm border border-border bg-background p-2">
-      <div className="size-14 shrink-0 overflow-hidden rounded-sm bg-surface">
+    <li className="flex items-center gap-3 rounded-m-md bg-md-surface-low p-2">
+      <div className="size-14 shrink-0 overflow-hidden rounded-m-sm bg-md-surface-high">
         <BlobImage blob={item.file} loading="lazy" className="size-full object-cover" />
       </div>
 

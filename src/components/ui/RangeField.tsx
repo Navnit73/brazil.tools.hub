@@ -23,10 +23,10 @@ export function RangeField({ label, value, min, max, step = 1, format = String, 
   return (
     <div className="flex flex-col gap-1">
       <div className="flex items-baseline justify-between gap-2 text-sm">
-        <label htmlFor={id} className="font-semibold">
+        <label htmlFor={id} className="font-medium text-md-on-surface">
           {label}
         </label>
-        <output htmlFor={id} className="tabular-nums text-muted">
+        <output htmlFor={id} className="rounded-m-xs bg-md-surface-high px-2 py-0.5 text-xs font-medium tabular-nums text-md-on-surface">
           {text}
         </output>
       </div>
@@ -41,10 +41,10 @@ export function RangeField({ label, value, min, max, step = 1, format = String, 
         aria-valuetext={text}
         aria-describedby={hint ? `${id}-hint` : undefined}
         onChange={(event) => onChange(event.target.valueAsNumber)}
-        className="range range-primary my-2 w-full"
+        className="range range-primary range-sm my-2 w-full"
       />
       {hint && (
-        <p id={`${id}-hint`} className="text-xs text-muted">
+        <p id={`${id}-hint`} className="text-xs text-md-on-surface-variant">
           {hint}
         </p>
       )}

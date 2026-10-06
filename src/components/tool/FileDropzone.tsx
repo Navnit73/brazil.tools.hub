@@ -94,10 +94,10 @@ export function FileDropzone({
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
       className={cn(
-        "flex cursor-pointer flex-col items-center justify-center gap-2 rounded-sm border-2 border-dashed text-center transition-colors",
+        "flex cursor-pointer flex-col items-center justify-center gap-3 rounded-m-md border-2 border-dashed text-center transition-colors",
         "has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-primary",
         compact ? "min-h-20 px-4 py-3" : "min-h-48 px-4 py-8 sm:min-h-56",
-        dragging ? "border-primary bg-primary-light" : "border-border-strong bg-surface hover:border-primary",
+        dragging ? "border-primary bg-md-primary-container" : "border-md-outline-variant bg-md-surface-low hover:border-primary",
         disabled && "pointer-events-none opacity-60",
       )}
     >
@@ -112,18 +112,20 @@ export function FileDropzone({
         aria-describedby={hint ? `${id}-hint` : undefined}
       />
       {!compact && (
-        <svg aria-hidden="true" viewBox="0 0 24 24" className="size-10 text-primary" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 16V4m0 0-4 4m4-4 4 4M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
-        </svg>
+        <span aria-hidden="true" className="grid size-14 place-items-center rounded-m-lg bg-md-primary-container text-md-on-primary-container">
+          <svg viewBox="0 0 24 24" className="size-7" fill="none" stroke="currentColor" strokeWidth="1.75">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 16V4m0 0-4 4m4-4 4 4M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+          </svg>
+        </span>
       )}
-      <span className="font-semibold">
+      <span className="font-display text-base font-medium sm:text-lg">
         {label}
-        <span className="block text-sm font-normal text-muted">
+        <span className="mt-0.5 block font-sans text-sm font-normal text-md-on-surface-variant">
           {dragging ? "Solte para adicionar" : "Toque para escolher ou arraste para cá"}
         </span>
       </span>
       {hint && (
-        <span id={`${id}-hint`} className="text-xs text-muted">
+        <span id={`${id}-hint`} className="text-xs text-md-on-surface-variant">
           {hint}
         </span>
       )}

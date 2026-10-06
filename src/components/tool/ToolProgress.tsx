@@ -8,7 +8,7 @@ interface ToolProgressProps {
 export function ToolProgress({ label, value, max }: ToolProgressProps) {
   return (
     <div role="status" className="flex flex-col gap-1">
-      <p className="text-sm font-semibold">{label}</p>
+      <p className="text-sm font-medium">{label}</p>
       <progress className="progress progress-primary w-full" value={value} max={max} aria-label={label} />
     </div>
   );

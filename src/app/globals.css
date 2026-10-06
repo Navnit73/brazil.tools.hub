@@ -185,6 +185,34 @@
   }
 }
 
+/*
+ * Ajustes do daisyUI para a linguagem Material 3. Ficam na camada `utilities` porque o
+ * daisyUI 5 é declarado dentro dela; assim estes estilos vencem o daisyUI e as classes
+ * utilitárias do Tailwind continuam vencendo ambos.
+ */
+@layer utilities {
+  .btn {
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  /* Botão de texto e contornado do M3: rótulo na cor primária. */
+  .btn-ghost {
+    --btn-rest-fg: var(--color-primary);
+  }
+
+  .btn-outline:not(.btn-primary) {
+    --btn-border: var(--md-outline);
+    --btn-rest-fg: var(--color-primary);
+  }
+
+  .input,
+  .select,
+  .textarea {
+    border-color: var(--md-outline);
+  }
+}
+
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;
@@ -247,15 +275,23 @@
 
   .content-prose h2 {
     margin-top: 2.5rem;
-    font-size: 1.375rem;
-    font-weight: 700;
+    color: var(--md-on-surface);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
     line-height: 1.3;
+  }
+
+  .content-prose > h2:first-child {
+    margin-top: 0;
   }
 
   .content-prose h3 {
     margin-top: 1.75rem;
+    color: var(--md-on-surface);
+    font-family: var(--font-display);
     font-size: 1.125rem;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.4;
   }
 
@@ -278,6 +314,11 @@
 
   .content-prose li + li {
     margin-top: 0.375rem;
+  }
+
+  .content-prose strong {
+    color: var(--md-on-surface);
+    font-weight: 500;
   }
 
   .content-prose a {
@@ -304,7 +345,9 @@
   }
 
   .content-prose table {
+    display: block;
     width: 100%;
+    overflow-x: auto;
     border-collapse: collapse;
     font-size: 0.9375rem;
   }
@@ -312,11 +355,13 @@
   .content-prose th,
   .content-prose td {
     padding: 0.5rem 0.75rem;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--md-outline-variant);
     text-align: left;
   }
 
   .content-prose th {
-    background-color: var(--color-surface);
+    background-color: var(--md-surface-container);
+    color: var(--md-on-surface);
+    font-weight: 500;
   }
 }

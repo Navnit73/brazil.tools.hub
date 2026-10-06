@@ -10,7 +10,8 @@ interface ToolStatusProps {
 }
 
 const kindClass: Record<ToolStatusKind, string> = {
-  info: "alert-info",
+  // O "info" do tema é verde-claro: no estilo soft, o texto ficaria quase invisível.
+  info: "border-md-outline-variant bg-md-surface-high text-md-on-surface",
   success: "alert-success",
   error: "alert-error",
 };

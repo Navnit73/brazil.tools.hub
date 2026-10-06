@@ -30,3 +30,33 @@ Four tools sharing one client-side pipeline (nothing is uploaded):
 
 Import the AVIF encoder only through `lib/wasm-encoders.ts`: `@jsquash/avif/encode.js` also references the
 multithreaded build, whose worker hangs the Turbopack build.
+
+## pdf/
+
+Sixteen tools, all client-side (nothing is uploaded), built on two libraries:
+
+- **`@cantoo/pdf-lib`** — maintained fork of pdf-lib; reads/writes PDFs and adds AES encryption/decryption.
+  Used for every operation that produces a PDF.
+- **`pdfjs-dist`** — renders pages (thumbnails, PDF → JPG/PNG) and extracts text. The library and its worker are
+  loaded only when a page needs them (`lib/render.ts`).
+- **`fflate`** — builds the .zip when a tool outputs several files.
+
+| File | Tool(s) |
+| ---- | ------- |
+| `MergePdf.tsx` | Juntar PDF |
+| `SplitPdf.tsx` | Dividir PDF (each page, every N pages, ranges) |
+| `CompressPdf.tsx` | Comprimir PDF — recompresses embedded JPEG photos; text/vectors untouched |
+| `components/PdfToImageTool` | PDF para JPG, PDF para PNG, Converter PDF em imagem |
+| `components/ImagesToPdfTool` | JPG para PDF, PNG para PDF |
+| `components/PageSelectTool` | Extrair páginas, Remover páginas |
+| `components/OrganizeTool` | Organizar PDF, Adicionar páginas |
+| `RotatePdf.tsx`, `PdfToText.tsx`, `ProtectPdf.tsx`, `UnlockPdf.tsx` | Girar, PDF para texto, Proteger, Desbloquear |
+
+- `lib/` — no React: `document` (load/save, password errors), `operations` (page ops, images → PDF, encrypt),
+  `compress`, `render` (pdf.js), `thumbnails` (lazy, cached per document; `disposePdf` closes a document), `ranges`
+  ("1-3, 5" parsing), `zip`.
+- `hooks/usePdfFile` — one open PDF with loading/password/error state; `usePdfTask` — run/progress/cancel/outputs.
+- `components/PdfFileGate` handles every single-file state; tools render a `key={docKey(doc)}` editor inside it so
+  choosing another file resets all settings and results.
+- Tools that write a PDF refuse password-protected files and link to Desbloquear PDF; read-only tools
+  (to image/text) ask for the password instead.

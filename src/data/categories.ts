@@ -17,12 +17,12 @@ export const categories: Category[] = [
     slug: "pdf",
     name: "Ferramentas de PDF",
     shortName: "PDF",
-    description: "Junte, divida e organize arquivos PDF de forma rápida.",
-    keywords: ["juntar pdf", "dividir pdf", "editar pdf online"],
+    description: "Junte, divida, comprima, converta e proteja PDFs direto no navegador, sem enviar seus arquivos.",
+    keywords: ["juntar pdf", "dividir pdf", "comprimir pdf", "pdf para jpg", "jpg para pdf", "editar pdf online"],
     seo: {
       title: "Ferramentas de PDF online grátis",
       description:
-        "Junte, divida e organize arquivos PDF online grátis. Simples, rápido e sem cadastro.",
+        "Junte, divida, comprima, gire e converta PDFs online grátis: PDF para JPG, JPG para PDF, senha e mais. Tudo no navegador, sem enviar arquivos.",
     },
   },
   {

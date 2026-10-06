@@ -7,10 +7,14 @@ export function formatBytes(bytes: number): string {
   return `${byteFormatter.format(bytes / (1024 * 1024))} MB`;
 }
 
+/** Nome do arquivo sem a extensão (ex.: "contrato.pdf" → "contrato"). */
+export function fileBaseName(name: string): string {
+  return name.replace(/\.[^./\\]+$/, "") || "arquivo";
+}
+
 /** Troca a extensão de um nome de arquivo, opcionalmente com um sufixo (ex.: "foto-comprimida.webp"). */
 export function renameFile(name: string, extension: string, suffix = ""): string {
-  const base = name.replace(/\.[^./\\]+$/, "") || "arquivo";
-  return `${base}${suffix}.${extension}`;
+  return `${fileBaseName(name)}${suffix}.${extension}`;
 }
 
 /** Inicia o download de um Blob no navegador. */

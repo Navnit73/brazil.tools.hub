@@ -114,7 +114,7 @@ export default async function HomePage() {
                     <Link
                       key={`${tool.category}/${tool.slug}`}
                       href={toolPath(tool)}
-                      className="state-layer inline-flex h-8 items-center rounded-m-sm border border-md-on-primary-container/25 bg-md-surface-lowest/50 px-3 font-medium"
+                      className="state-layer inline-flex h-12 items-center rounded-m-sm border border-md-on-primary-container/25 bg-md-surface-lowest/50 px-4 font-medium"
                     >
                       {tool.name}
                     </Link>
@@ -177,7 +177,7 @@ export default async function HomePage() {
                     <li key={tool.slug}>
                       <Link
                         href={toolPath(tool)}
-                        className="state-layer pointer-events-auto inline-flex h-8 items-center gap-1.5 rounded-m-sm border border-white/40 px-3 text-sm font-medium"
+                        className="state-layer pointer-events-auto inline-flex h-12 items-center gap-1.5 rounded-m-sm border border-white/40 px-4 text-sm font-medium"
                       >
                         {tool.name}
                         <Icon name="arrowRight" className="size-3.5" />

@@ -5,6 +5,7 @@ import { MarkdownContent } from "@/components/ui/MarkdownContent";
 import type { PageContent } from "@/lib/content";
 import { isToolLive } from "@/data/tools";
 import { toolAppId, toolJsonLd, webPageJsonLd } from "@/lib/seo/json-ld";
+import { OG_IMAGE_ID } from "@/lib/constants";
 import { toolPath } from "@/lib/routes";
 import type { Category } from "@/types/category";
 import type { Tool } from "@/types/tool";
@@ -32,6 +33,7 @@ export function ToolShell({ tool, category, content, related }: ToolShellProps) 
       about: live ? { "@id": toolAppId(path) } : undefined,
       faq: hasFaq ? content.faq : undefined,
       dateModified: tool.updatedAt,
+      imageId: OG_IMAGE_ID,
     }),
     // Ferramenta ainda não funcional não é anunciada como aplicativo disponível.
     ...(live ? [toolJsonLd(tool, path)] : []),

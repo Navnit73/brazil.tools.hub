@@ -12,11 +12,11 @@ export const siteConfig = {
   /**
    * Dados da empresa responsável pelo site. Só aparecem nas páginas e no JSON-LD quando preenchidos:
    * nunca invente valores.
-   * TODO: preencher com os dados reais (razão social, CNPJ e e-mail de contato que você monitora).
+   * TODO: preencher o CNPJ, se houver.
    */
   company: {
-    legalName: undefined as string | undefined,
+    legalName: "pixpassport.com" as string | undefined,
     cnpj: undefined as string | undefined,
-    email: undefined as string | undefined,
+    email: "pixpassportai@gmail.com" as string | undefined,
   },
 } as const;

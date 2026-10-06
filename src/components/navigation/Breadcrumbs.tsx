@@ -22,7 +22,8 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
                     {item.name}
                   </span>
                 ) : (
-                  <Link href={item.path} className="hover:text-primary">
+                  // Área de toque de 48px de altura (recomendação do Google), sem mudar o tamanho do texto.
+                  <Link href={item.path} className="inline-flex min-h-12 items-center hover:text-primary">
                     {item.name}
                   </Link>
                 )}

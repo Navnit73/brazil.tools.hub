@@ -2,6 +2,7 @@ import { siteConfig } from "@/config/site";
 import { seoConfig } from "@/config/seo";
 import type { FaqItem } from "@/lib/content";
 import { absoluteUrl } from "@/lib/utils";
+import { OG_IMAGE_ID } from "@/lib/constants";
 import type { Tool } from "@/types/tool";
 
 export interface BreadcrumbItem {
@@ -84,9 +85,12 @@ export function webPageJsonLd(input: {
   dateModified?: string;
   /** Segmento cujo `opengraph-image` a página usa (padrão: o próprio caminho). */
   imagePath?: string;
+  /** Id de `generateImageMetadata`, quando o segmento o usa. */
+  imageId?: string;
 }): JsonLd {
   const { path, name, description, type = "WebPage", hasBreadcrumb = true, mainEntity, about, faq, dateModified } = input;
   const imagePath = input.imagePath ?? path;
+  const imageUrl = input.imageId ? `${ogImageUrl(imagePath)}/${input.imageId}` : ogImageUrl(imagePath);
   const hasFaq = faq !== undefined && faq.length > 0;
   return {
     "@context": "https://schema.org",
@@ -97,7 +101,7 @@ export function webPageJsonLd(input: {
     description,
     inLanguage: siteConfig.language,
     isPartOf: { "@id": WEBSITE_ID },
-    primaryImageOfPage: { "@type": "ImageObject", url: ogImageUrl(imagePath), width: 1200, height: 630 },
+    primaryImageOfPage: { "@type": "ImageObject", url: imageUrl, width: 1200, height: 630 },
     ...(hasBreadcrumb && { breadcrumb: { "@id": breadcrumbId(path) } }),
     ...(about && { about }),
     ...(hasFaq ? { mainEntity: faqQuestions(faq) } : mainEntity && { mainEntity }),
@@ -156,7 +160,8 @@ export function toolJsonLd(tool: Tool, path: string): JsonLd {
     name: tool.name,
     description: tool.seo.description,
     url: absoluteUrl(path),
-    image: ogImageUrl(path),
+    // A imagem da ferramenta usa generateImageMetadata: a URL ganha o id no fim.
+    image: `${ogImageUrl(path)}/${OG_IMAGE_ID}`,
     inLanguage: siteConfig.language,
     applicationCategory: "UtilitiesApplication",
     operatingSystem: "Windows, macOS, Linux, Android, iOS",

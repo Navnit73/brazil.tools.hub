@@ -16,4 +16,6 @@ export const seoConfig = {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
     bing: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION || "6BFE4F80CD650E2E0CA99EA3C6C7664F",
   },
+  // ID do projeto no Microsoft Clarity (vazio = script não é carregado).
+  clarityId: process.env.NEXT_PUBLIC_CLARITY_ID ?? "yteefpujmw",
 } as const;

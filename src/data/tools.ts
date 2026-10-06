@@ -10,33 +10,56 @@ import { MAX_RELATED_TOOLS } from "@/lib/constants";
  */
 export const tools: Tool[] = [
   {
-    slug: "redimensionar-foto",
+    // Uma página para "redimensionar imagem" e "redimensionar foto" (mesma intenção de busca).
+    // O antigo /redimensionar-foto redireciona para cá (next.config.ts).
+    slug: "redimensionar-imagem",
     category: "imagem",
-    name: "Redimensionar foto",
-    description: "Altere a largura e a altura de fotos em JPG, PNG, WebP ou AVIF sem perder qualidade.",
-    keywords: ["redimensionar foto", "redimensionar imagem online", "mudar tamanho da foto"],
+    name: "Redimensionar imagem",
+    h1: "Redimensionar imagem e foto online",
+    description:
+      "Mude a largura e a altura de imagens e fotos JPG, PNG, WebP ou AVIF em pixels ou porcentagem, mantendo a proporção e a qualidade.",
+    keywords: [
+      "redimensionar imagem",
+      "redimensionar foto",
+      "redimensionar imagem online",
+      "redimensionar foto online grátis",
+      "alterar tamanho da imagem",
+      "mudar tamanho da foto",
+      "redimensionar jpg",
+      "redimensionar png",
+    ],
     seo: {
-      title: "Redimensionar foto online grátis",
+      title: "Redimensionar imagem e foto online grátis",
       description:
-        "Redimensione fotos JPG, PNG e WebP online grátis. Defina largura e altura em pixels ou porcentagem, direto no navegador.",
+        "Redimensione imagens e fotos online grátis: altere largura e altura em pixels ou %, mantendo a proporção. JPG, PNG e WebP, sem enviar nada.",
     },
     component: "image/resize",
-    related: ["imagem/comprimir-imagem", "imagem/editor-de-imagem", "imagem/converter-imagem"],
+    related: ["imagem/comprimir-imagem", "imagem/converter-jpg-para-webp", "imagem/editor-de-imagem"],
     updatedAt: "2026-10-06",
   },
   {
     slug: "comprimir-imagem",
     category: "imagem",
     name: "Comprimir imagem",
-    description: "Reduza o tamanho de arquivos de imagem mantendo boa qualidade visual.",
-    keywords: ["comprimir imagem", "reduzir tamanho de foto", "diminuir kb da imagem"],
+    h1: "Comprimir imagem online",
+    description:
+      "Reduza o tamanho e o peso de imagens JPG, PNG e WebP em KB, mantendo boa qualidade visual. Até 20 fotos de uma vez.",
+    keywords: [
+      "comprimir imagem",
+      "comprimir imagem online",
+      "compactar imagem",
+      "reduzir tamanho da imagem",
+      "diminuir peso da imagem",
+      "comprimir foto",
+      "diminuir kb da imagem",
+    ],
     seo: {
       title: "Comprimir imagem online grátis",
       description:
-        "Comprima imagens JPG, PNG e WebP online grátis e reduza o tamanho do arquivo sem perder qualidade visível.",
+        "Comprima imagens online grátis e reduza o peso em KB sem perder qualidade visível. Compacte JPG, PNG e WebP ou defina um limite, como 200 KB.",
     },
     component: "image/compress",
-    related: ["imagem/redimensionar-foto", "imagem/converter-imagem", "imagem/editor-de-imagem"],
+    related: ["imagem/redimensionar-imagem", "imagem/converter-jpg-para-webp", "imagem/converter-imagem"],
     updatedAt: "2026-10-06",
   },
   {
@@ -51,7 +74,7 @@ export const tools: Tool[] = [
         "Edite fotos online grátis: corte, gire, espelhe, redimensione e ajuste brilho, contraste e saturação. Sem cadastro e sem enviar a imagem.",
     },
     component: "image/editor",
-    related: ["imagem/redimensionar-foto", "imagem/comprimir-imagem", "imagem/converter-imagem"],
+    related: ["imagem/redimensionar-imagem", "imagem/comprimir-imagem", "imagem/converter-imagem"],
     updatedAt: "2026-10-06",
   },
   {
@@ -66,7 +89,30 @@ export const tools: Tool[] = [
         "Converta imagens para JPG, PNG, WebP ou AVIF online grátis, em lote e direto no navegador. Suas fotos não são enviadas a nenhum servidor.",
     },
     component: "image/convert",
-    related: ["imagem/comprimir-imagem", "imagem/editor-de-imagem", "imagem/redimensionar-foto"],
+    related: ["imagem/converter-jpg-para-webp", "imagem/comprimir-imagem", "imagem/redimensionar-imagem"],
+    updatedAt: "2026-10-06",
+  },
+  {
+    slug: "converter-jpg-para-webp",
+    category: "imagem",
+    name: "Converter JPG para WebP",
+    h1: "Converter JPG para WebP online",
+    description:
+      "Transforme fotos JPG em WebP, um formato bem mais leve com a mesma qualidade visual. Converta até 20 imagens de uma vez.",
+    keywords: [
+      "converter jpg para webp",
+      "jpg para webp",
+      "transformar jpg em webp",
+      "converter imagem para webp",
+      "jpg para webp grátis",
+    ],
+    seo: {
+      title: "Converter JPG para WebP online grátis",
+      description:
+        "Converta JPG para WebP online grátis, em lote e direto no navegador. Arquivos mais leves com a mesma qualidade, ideais para sites e lojas virtuais.",
+    },
+    component: "image/jpg-to-webp",
+    related: ["imagem/comprimir-imagem", "imagem/converter-imagem", "imagem/redimensionar-imagem"],
     updatedAt: "2026-10-06",
   },
   {

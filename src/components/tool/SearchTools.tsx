@@ -84,7 +84,7 @@ export function SearchTools({ items, maxResults = 8, size = "default" }: SearchT
       {hero && (
         <Icon
           name="search"
-          className="pointer-events-none absolute left-4 top-1/2 z-10 size-5 -translate-y-1/2 text-muted"
+          className="pointer-events-none absolute left-5 top-8 z-10 size-5 -translate-y-1/2 text-slate-400"
         />
       )}
       <input
@@ -96,7 +96,8 @@ export function SearchTools({ items, maxResults = 8, size = "default" }: SearchT
         placeholder="Buscar ferramenta (ex.: juntar pdf, pix, porcentagem)"
         className={cn(
           "input input-bordered w-full text-text",
-          hero && "h-14 border-white/20 pl-12 text-base shadow-[0_20px_50px_-15px_rgb(0_0_0/0.5)] sm:text-lg",
+          hero &&
+            "h-16 rounded-[1rem] border-slate-200 bg-white pl-13 pr-4 text-base shadow-[0_20px_50px_-20px_rgb(15_23_42/0.35)] focus:border-primary sm:text-lg",
         )}
         value={query}
         aria-expanded={expanded}
@@ -118,7 +119,10 @@ export function SearchTools({ items, maxResults = 8, size = "default" }: SearchT
         role="listbox"
         aria-label="Resultados da busca"
         hidden={!expanded}
-        className="absolute inset-x-0 top-full z-30 mt-1 max-h-96 overflow-y-auto rounded-sm border border-border bg-background text-left text-text shadow-lg"
+        className={cn(
+          "absolute inset-x-0 top-full z-30 max-h-96 overflow-y-auto border border-border bg-background text-left text-text shadow-lg",
+          hero ? "mt-2 rounded-[1rem] p-1.5" : "mt-1 rounded-sm",
+        )}
       >
         {results.length === 0 ? (
           <li role="option" aria-selected={false} aria-disabled className="px-3 py-2 text-sm text-muted">
@@ -137,7 +141,7 @@ export function SearchTools({ items, maxResults = 8, size = "default" }: SearchT
                 go(item);
               }}
               onMouseEnter={() => setActiveIndex(itemIndex)}
-              className={cn("cursor-pointer px-3 py-2", itemIndex === activeIndex && "bg-primary-light")}
+              className={cn("cursor-pointer px-3 py-2", hero && "rounded-[0.75rem]", itemIndex === activeIndex && "bg-primary-light")}
             >
               <span className="block text-sm font-medium">{item.name}</span>
               <span className="block text-xs text-muted">{item.category}</span>

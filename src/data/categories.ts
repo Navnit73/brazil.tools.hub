@@ -5,12 +5,12 @@ export const categories: Category[] = [
     slug: "imagem",
     name: "Ferramentas de imagem",
     shortName: "Imagem",
-    description: "Redimensione, comprima e converta fotos direto no navegador.",
-    keywords: ["editar foto online", "redimensionar imagem", "comprimir imagem"],
+    description: "Redimensione, comprima e converta imagens e fotos direto no navegador.",
+    keywords: ["ferramentas de imagem", "redimensionar imagem", "comprimir imagem", "converter jpg para webp", "editar foto online"],
     seo: {
       title: "Ferramentas de imagem online grátis",
       description:
-        "Redimensione, comprima e converta imagens online grátis, sem instalar nada. Suas fotos são processadas no seu próprio navegador.",
+        "Redimensione, comprima e converta imagens online grátis (JPG, PNG e WebP), sem instalar nada. Suas fotos são processadas no seu navegador.",
     },
   },
   {

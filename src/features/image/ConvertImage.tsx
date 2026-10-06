@@ -15,9 +15,14 @@ const formatHints: Record<ImageFormat, string> = {
   avif: "O mais leve de todos. Pode demorar alguns segundos por imagem.",
 };
 
-export default function ConvertImage() {
+interface ConvertImageProps {
+  /** Formato pré-selecionado (páginas de conversão específica, ex.: JPG para WebP). */
+  defaultFormat?: ImageFormat;
+}
+
+export default function ConvertImage({ defaultFormat = "webp" }: ConvertImageProps) {
   const batch = useImageBatch();
-  const [format, setFormat] = useState<ImageFormat>("webp");
+  const [format, setFormat] = useState<ImageFormat>(defaultFormat);
   const [quality, setQuality] = useState(90);
   const { lossy } = IMAGE_FORMATS[format];
 

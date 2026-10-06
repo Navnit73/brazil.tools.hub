@@ -13,6 +13,7 @@ export const toolComponents = {
   "image/compress": dynamic(() => import("./image/CompressImage"), { ssr: false, loading: ToolLoading }),
   "image/editor": dynamic(() => import("./image/ImageEditor"), { ssr: false, loading: ToolLoading }),
   "image/convert": dynamic(() => import("./image/ConvertImage"), { ssr: false, loading: ToolLoading }),
+  "image/jpg-to-webp": dynamic(() => import("./image/ConvertJpgToWebp"), { ssr: false, loading: ToolLoading }),
   "pdf/merge": dynamic(() => import("./pdf/MergePdf"), { ssr: false, loading: ToolLoading }),
   "calculator/percentage": dynamic(() => import("./calculator/PercentageCalculator"), { ssr: false, loading: ToolLoading }),
   "pix/qr-code": dynamic(() => import("./pix/PixQrCode"), { ssr: false, loading: ToolLoading }),

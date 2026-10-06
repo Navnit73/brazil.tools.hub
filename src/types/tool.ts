@@ -4,7 +4,10 @@ import type { CategorySlug } from "./category";
 export interface Tool {
   slug: string;
   category: CategorySlug;
+  /** Nome curto exibido em cards, menus e breadcrumbs. */
   name: string;
+  /** `<h1>` da página com a palavra-chave principal (padrão: `name`). */
+  h1?: string;
   description: string;
   keywords: string[];
   seo: {

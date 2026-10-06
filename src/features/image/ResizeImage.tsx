@@ -2,7 +2,7 @@
 
 import ImageEditor from "./ImageEditor";
 
-/** Página "Redimensionar foto": o editor completo, já aberto no painel de tamanho. */
+/** Página "Redimensionar imagem": o editor completo, já aberto no painel de tamanho. */
 export default function ResizeImage() {
   return <ImageEditor initialPanel="resize" />;
 }

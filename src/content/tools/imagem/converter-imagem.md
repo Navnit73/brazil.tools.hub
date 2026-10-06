@@ -13,6 +13,8 @@
 | WebP    | Sites e redes sociais: bem mais leve que JPG     | Sim           |
 | AVIF    | O menor arquivo possível em navegadores recentes | Sim           |
 
+Quer só deixar suas fotos mais leves para um site? Use o atalho [Converter JPG para WebP](/ferramentas/imagem/converter-jpg-para-webp).
+
 ## Perguntas frequentes
 
 ### Converter para JPG remove o fundo transparente?

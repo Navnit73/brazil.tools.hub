@@ -1,4 +1,4 @@
-# Proteger PDF com Senha Online Grátis
+# Proteger PDF com senha online grátis
 
 Use nossa ferramenta para **colocar senha em PDF** e garantir que só quem tem a senha consiga abrir o arquivo. A proteção usa **criptografia AES de 256 bits**, um padrão forte e aceito pelos leitores de PDF. É grátis, sem cadastro, e o arquivo é protegido no seu navegador, sem ser enviado para nenhum servidor.
 

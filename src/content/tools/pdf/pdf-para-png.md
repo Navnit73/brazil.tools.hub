@@ -1,4 +1,4 @@
-# Converter PDF para PNG Online Grátis
+# Converter PDF para PNG online grátis
 
 Use nossa ferramenta para **converter PDF para PNG**: cada página do documento vira uma imagem PNG nítida, **sem perda de qualidade**. É a melhor escolha quando o texto precisa ficar bem legível, como em prints de documentos, materiais para impressão ou imagens que você ainda vai editar. Grátis, sem cadastro, e o PDF não sai do seu dispositivo.
 

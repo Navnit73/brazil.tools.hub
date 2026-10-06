@@ -1,4 +1,4 @@
-# Extrair Páginas de PDF Online Grátis
+# Extrair páginas de PDF online grátis
 
 Use nossa ferramenta para **extrair páginas de PDF** e salvar só as que você precisa em um novo arquivo. Escolha as páginas tocando nas miniaturas ou digitando intervalos e baixe um PDF com todas elas ou um PDF por página. Grátis, sem cadastro, e o arquivo não sai do seu dispositivo.
 

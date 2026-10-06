@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { categories } from "@/data/categories";
-import { getToolsByCategory, tools } from "@/data/tools";
+import { infoPagePath, infoPages, isInfoPageIndexable } from "@/data/pages";
+import { getLiveToolsByCategory, isToolLive, tools } from "@/data/tools";
 import { TOOLS_BASE_PATH } from "@/lib/constants";
 import { categoryPath, toolPath } from "@/lib/routes";
 import { absoluteUrl } from "@/lib/utils";
@@ -10,12 +11,16 @@ function latest(dates: string[]): Date | undefined {
   return max ? new Date(max) : undefined;
 }
 
+/**
+ * Só URLs canônicas e indexáveis (as mesmas que não têm `noindex`). Site com um único
+ * idioma: sem `alternates.languages` aqui, o hreflang pt-BR/x-default fica no `<head>`.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUpdated = latest(tools.map((tool) => tool.updatedAt));
+  const liveTools = tools.filter(isToolLive);
+  const siteUpdated = latest(liveTools.map((tool) => tool.updatedAt));
 
-  // Apenas páginas indexáveis: categorias vazias ficam de fora (estão com noindex).
   const categoryEntries = categories.flatMap((category) => {
-    const categoryTools = getToolsByCategory(category.slug);
+    const categoryTools = getLiveToolsByCategory(category.slug);
     if (categoryTools.length === 0) return [];
     return [
       {
@@ -27,15 +32,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ];
   });
 
+  const infoEntries = infoPages.filter(isInfoPageIndexable).map((page) => ({
+    url: absoluteUrl(infoPagePath(page)),
+    lastModified: new Date(page.updatedAt),
+    changeFrequency: "yearly" as const,
+    priority: 0.3,
+  }));
+
   return [
     { url: absoluteUrl("/"), lastModified: siteUpdated, changeFrequency: "weekly", priority: 1 },
     { url: absoluteUrl(TOOLS_BASE_PATH), lastModified: siteUpdated, changeFrequency: "weekly", priority: 0.9 },
     ...categoryEntries,
-    ...tools.map((tool) => ({
+    ...liveTools.map((tool) => ({
       url: absoluteUrl(toolPath(tool)),
       lastModified: new Date(tool.updatedAt),
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
+    ...infoEntries,
   ];
 }

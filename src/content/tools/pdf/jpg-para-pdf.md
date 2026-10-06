@@ -1,4 +1,4 @@
-# Converter JPG para PDF Online Grátis
+# Converter JPG para PDF online grátis
 
 Use nossa ferramenta para **converter JPG para PDF** e **juntar fotos em PDF**: cada imagem vira uma página de um único documento. Escolha a ordem, o tamanho da página e a margem e veja a prévia de cada folha antes de baixar. É grátis, sem cadastro, e as fotos não saem do seu dispositivo.
 

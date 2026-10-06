@@ -1,4 +1,4 @@
-# Comprimir PDF Online Grátis
+# Comprimir PDF online grátis
 
 Use nossa ferramenta para **comprimir PDF** e **reduzir o tamanho do PDF** antes de enviar por e-mail, WhatsApp ou em sites do governo que limitam o tamanho do arquivo. Escolha o nível de compressão, veja quanto o arquivo diminuiu e baixe. É grátis, sem cadastro, e o PDF não sai do seu dispositivo.
 

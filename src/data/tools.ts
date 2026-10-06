@@ -31,7 +31,7 @@ export const tools: Tool[] = [
     seo: {
       title: "Redimensionar imagem e foto online grátis",
       description:
-        "Redimensione imagens e fotos online grátis: altere largura e altura em pixels ou %, mantendo a proporção. JPG, PNG e WebP, sem enviar nada.",
+        "Redimensione imagens e fotos online grátis: mude largura e altura em pixels ou %, mantendo a proporção. JPG, PNG e WebP, sem enviar nada. Experimente!",
     },
     component: "image/resize",
     related: ["imagem/comprimir-imagem", "imagem/converter-jpg-para-webp", "imagem/editor-de-imagem"],
@@ -54,9 +54,9 @@ export const tools: Tool[] = [
       "diminuir kb da imagem",
     ],
     seo: {
-      title: "Comprimir imagem online grátis",
+      title: "Comprimir imagem online grátis e reduzir o peso",
       description:
-        "Comprima imagens online grátis e reduza o peso em KB sem perder qualidade visível. Compacte JPG, PNG e WebP ou defina um limite, como 200 KB.",
+        "Comprima imagens online grátis e reduza o peso em KB sem perder qualidade visível. JPG, PNG e WebP, até 20 fotos de uma vez. Experimente agora!",
     },
     component: "image/compress",
     related: ["imagem/redimensionar-imagem", "imagem/converter-jpg-para-webp", "imagem/converter-imagem"],
@@ -69,9 +69,9 @@ export const tools: Tool[] = [
     description: "Corte, gire, redimensione e ajuste brilho, contraste e saturação de fotos no navegador.",
     keywords: ["editor de imagem online", "cortar foto", "girar imagem", "editar foto online grátis"],
     seo: {
-      title: "Editor de imagem online grátis",
+      title: "Editor de imagem online grátis: cortar e girar",
       description:
-        "Edite fotos online grátis: corte, gire, espelhe, redimensione e ajuste brilho, contraste e saturação. Sem cadastro e sem enviar a imagem.",
+        "Edite fotos online grátis: corte, gire, espelhe, redimensione e ajuste brilho, contraste e saturação. Sem cadastro e sem enviar a imagem. Comece já!",
     },
     component: "image/editor",
     related: ["imagem/redimensionar-imagem", "imagem/comprimir-imagem", "imagem/converter-imagem"],
@@ -84,9 +84,9 @@ export const tools: Tool[] = [
     description: "Converta imagens entre JPG, PNG, WebP e AVIF, uma ou várias de uma vez.",
     keywords: ["converter imagem", "converter png para jpg", "converter webp para jpg", "converter para avif"],
     seo: {
-      title: "Converter imagem online grátis: JPG, PNG, WebP e AVIF",
+      title: "Converter imagem online: JPG, PNG, WebP e AVIF",
       description:
-        "Converta imagens para JPG, PNG, WebP ou AVIF online grátis, em lote e direto no navegador. Suas fotos não são enviadas a nenhum servidor.",
+        "Converta imagens para JPG, PNG, WebP ou AVIF online grátis, em lote e direto no navegador. Suas fotos não são enviadas a nenhum servidor. Converta já!",
     },
     component: "image/convert",
     related: ["imagem/converter-jpg-para-webp", "imagem/comprimir-imagem", "imagem/redimensionar-imagem"],
@@ -107,7 +107,7 @@ export const tools: Tool[] = [
       "jpg para webp grátis",
     ],
     seo: {
-      title: "Converter JPG para WebP online grátis",
+      title: "Converter JPG para WebP online grátis e em lote",
       description:
         "Converta JPG para WebP online grátis, em lote e direto no navegador. Arquivos mais leves com a mesma qualidade, ideais para sites e lojas virtuais.",
     },
@@ -132,7 +132,7 @@ export const tools: Tool[] = [
       "juntar pdf grátis",
     ],
     seo: {
-      title: "Juntar PDF online grátis: unir arquivos PDF em um só",
+      title: "Juntar PDF online grátis: unir arquivos em um só",
       description:
         "Junte vários PDFs em um só, online e grátis. Arraste para definir a ordem e baixe na hora. Os arquivos não são enviados: tudo acontece no navegador.",
     },
@@ -156,9 +156,9 @@ export const tools: Tool[] = [
       "dividir pdf em partes",
     ],
     seo: {
-      title: "Dividir PDF online grátis: separar páginas em arquivos",
+      title: "Dividir PDF online grátis: separar páginas",
       description:
-        "Divida um PDF em vários arquivos online e grátis: por página, a cada N páginas ou por intervalos. Baixe tudo em .zip, sem enviar nada.",
+        "Divida um PDF em vários arquivos online e grátis: por página, a cada N páginas ou por intervalos. Baixe tudo em .zip, sem enviar nada. Experimente!",
     },
     component: "pdf/split",
     related: ["pdf/extrair-paginas-pdf", "pdf/juntar-pdf", "pdf/remover-paginas-pdf"],
@@ -180,9 +180,9 @@ export const tools: Tool[] = [
       "diminuir mb pdf",
     ],
     seo: {
-      title: "Comprimir PDF online grátis: reduzir o tamanho do PDF",
+      title: "Comprimir PDF online grátis: reduzir o tamanho",
       description:
-        "Comprima PDFs online grátis e reduza o tamanho em MB para enviar por e-mail ou WhatsApp. Três níveis de compressão, direto no navegador.",
+        "Comprima PDFs online grátis e reduza o tamanho em MB para enviar por e-mail ou WhatsApp. Três níveis de compressão, direto no navegador. Comece agora!",
     },
     component: "pdf/compress",
     related: ["pdf/juntar-pdf", "pdf/pdf-para-jpg", "pdf/dividir-pdf"],
@@ -204,9 +204,9 @@ export const tools: Tool[] = [
       "pdf para foto",
     ],
     seo: {
-      title: "PDF para JPG online grátis: converter PDF em imagem JPG",
+      title: "PDF para JPG online grátis: converter em imagem",
       description:
-        "Converta PDF para JPG online grátis: cada página vira uma imagem, em até 300 DPI. Escolha as páginas e baixe em .zip, sem enviar o arquivo.",
+        "Converta PDF para JPG online grátis: cada página vira uma imagem de até 300 DPI. Escolha as páginas e baixe em .zip, sem enviar o arquivo. Experimente!",
     },
     component: "pdf/to-jpg",
     related: ["pdf/jpg-para-pdf", "pdf/pdf-para-png", "pdf/converter-pdf-em-imagem"],
@@ -228,9 +228,9 @@ export const tools: Tool[] = [
       "juntar fotos em pdf",
     ],
     seo: {
-      title: "JPG para PDF online grátis: converter fotos em PDF",
+      title: "JPG para PDF online grátis: fotos em um só PDF",
       description:
-        "Converta JPG para PDF online grátis: junte várias fotos em um só PDF, escolha a ordem, o tamanho da página e a margem. Sem enviar as fotos.",
+        "Converta JPG para PDF online grátis: junte várias fotos em um só PDF e escolha a ordem, o tamanho da página e a margem. Sem enviar as fotos. Comece já!",
     },
     component: "pdf/from-jpg",
     related: ["pdf/pdf-para-jpg", "pdf/png-para-pdf", "pdf/juntar-pdf"],
@@ -250,9 +250,9 @@ export const tools: Tool[] = [
       "pdf em png",
     ],
     seo: {
-      title: "PDF para PNG online grátis: converter PDF em imagem PNG",
+      title: "PDF para PNG online grátis: converter em imagem",
       description:
-        "Converta PDF para PNG online grátis, sem perda de qualidade: cada página vira uma imagem em até 300 DPI. Tudo no seu navegador.",
+        "Converta PDF para PNG online grátis e sem perda de qualidade: cada página vira uma imagem de até 300 DPI. Tudo no seu navegador. Experimente agora!",
     },
     component: "pdf/to-png",
     related: ["pdf/png-para-pdf", "pdf/pdf-para-jpg", "pdf/converter-pdf-em-imagem"],
@@ -273,9 +273,9 @@ export const tools: Tool[] = [
       "imagem png em pdf",
     ],
     seo: {
-      title: "PNG para PDF online grátis: converter imagens PNG em PDF",
+      title: "PNG para PDF online grátis: prints em um só PDF",
       description:
-        "Converta PNG para PDF online grátis: junte prints e imagens em um só PDF, na ordem que quiser, em A4, Carta ou tamanho original.",
+        "Converta PNG para PDF online grátis: junte prints e imagens em um só PDF, na ordem que quiser, em A4, Carta ou tamanho original. Experimente agora!",
     },
     component: "pdf/from-png",
     related: ["pdf/pdf-para-png", "pdf/jpg-para-pdf", "pdf/juntar-pdf"],
@@ -296,9 +296,9 @@ export const tools: Tool[] = [
       "converter pdf em texto",
     ],
     seo: {
-      title: "PDF para texto online grátis: extrair texto de PDF",
+      title: "PDF para texto online grátis: extrair o texto",
       description:
-        "Extraia o texto de um PDF online grátis: copie com um toque ou baixe em .txt. Funciona com PDFs protegidos, se você tiver a senha.",
+        "Extraia o texto de um PDF online grátis: copie com um toque ou baixe em .txt. Funciona até com PDF protegido, se você tiver a senha. Experimente!",
     },
     component: "pdf/to-text",
     related: ["pdf/pdf-para-jpg", "pdf/dividir-pdf", "pdf/comprimir-pdf"],
@@ -319,9 +319,9 @@ export const tools: Tool[] = [
       "copiar páginas pdf",
     ],
     seo: {
-      title: "Extrair páginas de PDF online grátis",
+      title: "Extrair páginas de PDF online grátis e rápido",
       description:
-        "Extraia páginas de um PDF online grátis: toque nas páginas ou digite intervalos (1-3, 5) e baixe um novo PDF só com elas.",
+        "Extraia páginas de um PDF online grátis: toque nas páginas ou digite intervalos (1-3, 5) e baixe um novo PDF só com elas. Sem cadastro, experimente!",
     },
     component: "pdf/extract-pages",
     related: ["pdf/dividir-pdf", "pdf/remover-paginas-pdf", "pdf/organizar-pdf"],
@@ -342,9 +342,9 @@ export const tools: Tool[] = [
       "girar pdf e salvar",
     ],
     seo: {
-      title: "Girar PDF online grátis: rotacionar páginas e salvar",
+      title: "Girar PDF online grátis: rotacionar páginas",
       description:
-        "Gire páginas de PDF online grátis: todas de uma vez ou uma por uma, vendo a prévia. Salve o PDF já na posição certa.",
+        "Gire páginas de PDF online grátis: todas de uma vez ou uma por uma, vendo a prévia. Salve o PDF já na posição certa, sem enviar o arquivo. Experimente!",
     },
     component: "pdf/rotate",
     related: ["pdf/organizar-pdf", "pdf/remover-paginas-pdf", "pdf/juntar-pdf"],
@@ -367,7 +367,7 @@ export const tools: Tool[] = [
     seo: {
       title: "Organizar PDF online grátis: reordenar páginas",
       description:
-        "Organize as páginas de um PDF online grátis: arraste para mudar a ordem, gire, exclua e insira páginas. Sem enviar o arquivo.",
+        "Organize as páginas de um PDF online grátis: arraste para mudar a ordem, gire, exclua e insira páginas. Sem cadastro e sem enviar o arquivo. Comece já!",
     },
     component: "pdf/organize",
     related: ["pdf/girar-pdf", "pdf/remover-paginas-pdf", "pdf/adicionar-paginas-pdf"],
@@ -388,9 +388,9 @@ export const tools: Tool[] = [
       "tirar página do pdf",
     ],
     seo: {
-      title: "Remover páginas de PDF online grátis",
+      title: "Excluir e remover páginas de PDF online grátis",
       description:
-        "Remova páginas de um PDF online grátis: toque nas páginas que quer excluir e baixe o documento sem elas. Rápido e sem cadastro.",
+        "Remova páginas de um PDF online grátis: toque nas páginas que quer excluir e baixe o documento sem elas. Rápido, sem cadastro e sem enviar nada. Experimente!",
     },
     component: "pdf/remove-pages",
     related: ["pdf/extrair-paginas-pdf", "pdf/organizar-pdf", "pdf/dividir-pdf"],
@@ -413,7 +413,7 @@ export const tools: Tool[] = [
     seo: {
       title: "Adicionar páginas ao PDF online grátis",
       description:
-        "Adicione páginas a um PDF online grátis: insira páginas de outro PDF ou em branco, onde quiser, e reorganize antes de salvar.",
+        "Adicione páginas a um PDF online grátis: insira páginas de outro PDF ou em branco, onde quiser, e reorganize antes de salvar. Sem enviar nada. Comece já!",
     },
     component: "pdf/add-pages",
     related: ["pdf/juntar-pdf", "pdf/organizar-pdf", "pdf/remover-paginas-pdf"],
@@ -434,7 +434,7 @@ export const tools: Tool[] = [
       "bloquear pdf",
     ],
     seo: {
-      title: "Proteger PDF com senha online grátis",
+      title: "Proteger PDF com senha online grátis (AES-256)",
       description:
         "Coloque senha em PDF online grátis, com criptografia AES de 256 bits. O arquivo é protegido no seu navegador e não é enviado a nenhum servidor.",
     },
@@ -457,9 +457,9 @@ export const tools: Tool[] = [
       "pdf sem senha",
     ],
     seo: {
-      title: "Desbloquear PDF online grátis: remover senha do PDF",
+      title: "Desbloquear PDF online grátis: remover a senha",
       description:
-        "Remova a senha de um PDF online grátis: digite a senha uma vez e baixe uma cópia que abre direto, sem restrições para imprimir ou copiar.",
+        "Remova a senha de um PDF online grátis: digite a senha uma vez e baixe uma cópia que abre direto, sem restrições para imprimir ou copiar. Experimente!",
     },
     component: "pdf/unlock",
     related: ["pdf/proteger-pdf", "pdf/pdf-para-texto", "pdf/juntar-pdf"],
@@ -480,9 +480,9 @@ export const tools: Tool[] = [
       "pdf em foto",
     ],
     seo: {
-      title: "Converter PDF em imagem online grátis (JPG ou PNG)",
+      title: "Converter PDF em imagem JPG ou PNG online grátis",
       description:
-        "Converta PDF em imagem online grátis: escolha JPG ou PNG, a resolução e as páginas. Baixe uma a uma ou todas em .zip.",
+        "Converta PDF em imagem online grátis: escolha JPG ou PNG, a resolução e as páginas. Baixe uma a uma ou todas em .zip, sem enviar o arquivo. Experimente!",
     },
     component: "pdf/to-image",
     related: ["pdf/pdf-para-jpg", "pdf/pdf-para-png", "pdf/jpg-para-pdf"],
@@ -495,11 +495,13 @@ export const tools: Tool[] = [
     description: "Calcule porcentagens, aumentos e descontos de forma rápida.",
     keywords: ["calcular porcentagem", "calculadora de porcentagem", "quanto é x% de y"],
     seo: {
-      title: "Calculadora de porcentagem online",
+      title: "Calculadora de porcentagem online grátis",
       description:
-        "Calcule porcentagem online: quanto é X% de Y, aumento, desconto e variação percentual, com o passo a passo da conta.",
+        "Calcule porcentagem online grátis: quanto é X% de Y, quanto X representa de Y e a variação percentual, com o passo a passo da conta. Sem cadastro.",
     },
     component: "calculator/percentage",
+    // Interface pronta, cálculo ainda não implementado: fora do índice até funcionar.
+    comingSoon: true,
     related: ["pix/gerador-qr-code"],
     updatedAt: "2026-10-05",
   },
@@ -510,11 +512,13 @@ export const tools: Tool[] = [
     description: "Crie um QR Code Pix e um código copia e cola para receber pagamentos.",
     keywords: ["gerar qr code pix", "qr code pix grátis", "pix copia e cola"],
     seo: {
-      title: "Gerador de QR Code Pix grátis",
+      title: "Gerador de QR Code Pix grátis e copia e cola",
       description:
-        "Gere QR Code Pix estático e código copia e cola grátis, com valor e descrição opcionais. Sem cadastro e sem taxas.",
+        "Gere QR Code Pix estático e código Pix copia e cola grátis, com valor opcional, para receber pagamentos. Sem cadastro, sem taxas e sem instalar nada.",
     },
     component: "pix/qr-code",
+    // Interface pronta, cálculo ainda não implementado: fora do índice até funcionar.
+    comingSoon: true,
     related: ["calculadoras/porcentagem"],
     updatedAt: "2026-10-05",
   },
@@ -533,6 +537,16 @@ export function getToolParams(): Array<{ category: string; tool: string }> {
 
 export function getToolsByCategory(category: Category["slug"]): Tool[] {
   return tools.filter((tool) => tool.category === category);
+}
+
+/** Ferramentas que já funcionam: as únicas indexáveis (sitemap, `index`, JSON-LD de aplicativo). */
+export function isToolLive(tool: Tool): boolean {
+  return !tool.comingSoon;
+}
+
+/** Uma categoria só é indexável quando tem ao menos uma ferramenta funcionando. */
+export function getLiveToolsByCategory(category: Category["slug"]): Tool[] {
+  return getToolsByCategory(category).filter(isToolLive);
 }
 
 /** Relacionadas declaradas primeiro, completadas com outras da mesma categoria. */

@@ -1,4 +1,4 @@
-# Juntar PDF Online Grátis
+# Juntar PDF online grátis
 
 Use nossa ferramenta para **juntar PDF** em poucos segundos: selecione os arquivos, defina a ordem e baixe um único documento. Dá para **unir PDF**, **mesclar PDF** ou **combinar PDF** de contratos, comprovantes, boletos e trabalhos escolares sem instalar nada e sem cadastro.
 

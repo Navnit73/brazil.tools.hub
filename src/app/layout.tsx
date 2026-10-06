@@ -2,8 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Roboto } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { JsonLd } from "@/components/ui/JsonLd";
 import { seoConfig } from "@/config/seo";
 import { siteConfig } from "@/config/site";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/json-ld";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
@@ -18,6 +20,11 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   publisher: siteConfig.name,
   formatDetection: { telephone: false, email: false, address: false },
+  appleWebApp: { title: siteConfig.shortName },
+  verification: {
+    google: seoConfig.verification.google,
+    ...(seoConfig.verification.bing && { other: { "msvalidate.01": seoConfig.verification.bing } }),
+  },
   robots: {
     index: true,
     follow: true,
@@ -45,6 +52,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <Footer />
+        {/* Entidades do site inteiro: as páginas se ligam a elas por `@id`. */}
+        <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
       </body>
     </html>
   );

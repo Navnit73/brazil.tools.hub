@@ -1,4 +1,4 @@
-# Organizar Páginas de PDF Online Grátis
+# Organizar páginas de PDF online grátis
 
 Use nossa ferramenta para **organizar PDF** página por página: arraste as miniaturas para **mudar a ordem das páginas**, gire, exclua e insira páginas de outros PDFs ou em branco. Tudo em uma só tela, com a prévia do documento final. Grátis, sem cadastro, e o arquivo não sai do seu dispositivo.
 

@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
-import { footerNavigation } from "@/data/navigation";
+import { footerNavigation, institutionalNavigation } from "@/data/navigation";
 import { TOOLS_BASE_PATH } from "@/lib/constants";
 import { Container } from "./Container";
 
 export function Footer() {
   return (
     <footer className="mt-16 border-t border-border bg-surface">
-      <Container className="grid gap-8 py-10 sm:grid-cols-[1fr_2fr]">
+      <Container className="grid gap-8 py-10 sm:grid-cols-[1fr_2fr] lg:grid-cols-[1fr_2fr_1fr]">
         <div>
           <p className="font-bold">{siteConfig.name}</p>
           <p className="mt-2 max-w-xs text-sm text-muted">{siteConfig.description}</p>
@@ -27,6 +27,18 @@ export function Footer() {
                 Todas as ferramentas
               </Link>
             </li>
+          </ul>
+        </nav>
+        <nav aria-label="Institucional">
+          <p className="text-sm font-semibold">Institucional</p>
+          <ul className="mt-3 grid gap-2 text-sm">
+            {institutionalNavigation.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="text-muted hover:text-primary hover:underline">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </Container>

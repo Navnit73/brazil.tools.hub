@@ -1,4 +1,4 @@
-# Girar PDF Online Grátis
+# Girar PDF online grátis
 
 Use nossa ferramenta para **girar PDF** e salvar o documento já na posição certa. Gire todas as páginas de uma vez ou só as que estão de lado ou de cabeça para baixo, vendo a prévia antes de baixar. Grátis, sem cadastro, e o arquivo não sai do seu dispositivo.
 

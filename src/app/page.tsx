@@ -19,7 +19,7 @@ import { getPageContent } from "@/lib/content";
 import { categoryPath, toolPath } from "@/lib/routes";
 import { getSearchItems } from "@/lib/search";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { faqJsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo/json-ld";
+import { webPageJsonLd } from "@/lib/seo/json-ld";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -98,10 +98,10 @@ export default async function HomePage() {
                 </p>
 
                 <h1 className="mt-6 font-display text-[2.25rem] font-normal leading-[2.75rem] tracking-[-0.02em] text-balance sm:text-5xl sm:leading-[3.5rem] lg:text-[3.5rem] lg:leading-[4rem]">
-                  Ferramentas Online Grátis para <span className="font-medium text-primary-dark">o Dia a Dia</span>
+                  Ferramentas de PDF e imagem <span className="font-medium text-primary-dark">online e grátis</span>
                 </h1>
                 <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-pretty opacity-80 sm:text-lg lg:mx-0">
-                  Imagens, PDF, calculadoras, Pix, documentos, WhatsApp e texto. Tudo rápido, simples e sem cadastro.
+                  Junte, divida, comprima e converta PDFs e imagens direto no navegador. Rápido, simples e sem cadastro.
                 </p>
 
                 <div className="mt-8 flex justify-center lg:justify-start">
@@ -164,13 +164,13 @@ export default async function HomePage() {
                 <span aria-hidden="true" className="relative grid size-14 place-items-center rounded-m-lg bg-md-primary-container text-md-on-primary-container">
                   <Icon name={featuredVisual.icon} className="size-7" />
                 </span>
-                <p className="relative mt-6 text-sm font-medium opacity-80">Destaque</p>
+                <p className="relative mt-6 text-sm font-medium">Destaque</p>
                 <h3 className="relative mt-1 font-display text-[1.75rem] font-normal leading-tight sm:text-[2rem]">
                   <Link href={categoryPath(featured.slug)} className="after:absolute after:inset-0">
                     {featured.name}
                   </Link>
                 </h3>
-                <p className="relative mt-2 max-w-md opacity-85">{featured.description}</p>
+                <p className="relative mt-2 max-w-md">{featured.description}</p>
                 {/* A lista fica acima do link estendido, mas deixa os vãos entre os chips clicáveis para o card. */}
                 <ul className="pointer-events-none relative z-10 mt-auto flex flex-wrap gap-2 pt-8">
                   {featuredTools.map((tool) => (
@@ -331,7 +331,13 @@ export default async function HomePage() {
       </Container>
 
       <JsonLd
-        data={[organizationJsonLd(), websiteJsonLd(), ...(content && content.faq.length > 0 ? [faqJsonLd(content.faq)] : [])]}
+        data={webPageJsonLd({
+          path: "/",
+          name: seoConfig.defaultTitle,
+          description: siteConfig.description,
+          hasBreadcrumb: false,
+          faq: content?.faq,
+        })}
       />
     </div>
   );
@@ -348,7 +354,7 @@ interface SectionHeadingProps {
 function SectionHeading({ id, eyebrow, title, description, centered = false }: SectionHeadingProps) {
   return (
     <div className={centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
-      <p className="text-sm font-medium text-primary">{eyebrow}</p>
+      <p className="text-sm font-medium text-primary-dark">{eyebrow}</p>
       <h2 id={id} className="mt-2 font-display text-[1.75rem] font-normal leading-tight text-md-on-surface text-balance sm:text-4xl">
         {title}
       </h2>

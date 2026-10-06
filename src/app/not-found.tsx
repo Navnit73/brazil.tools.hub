@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { TOOLS_BASE_PATH } from "@/lib/constants";
+import { categoryPath } from "@/lib/routes";
 
 export const metadata: Metadata = {
   title: "Página não encontrada",
+  description: "O endereço não existe ou mudou. Veja todas as ferramentas de PDF e imagem.",
   robots: { index: false, follow: true },
 };
 
@@ -22,6 +24,17 @@ export default function NotFound() {
           Ir para o início
         </Link>
       </div>
+      <p className="mt-8 text-sm text-muted">
+        Talvez você procure as{" "}
+        <Link href={categoryPath("pdf")} className="font-medium text-primary underline">
+          ferramentas de PDF
+        </Link>{" "}
+        ou as{" "}
+        <Link href={categoryPath("imagem")} className="font-medium text-primary underline">
+          ferramentas de imagem
+        </Link>
+        .
+      </p>
     </Container>
   );
 }

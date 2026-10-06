@@ -8,10 +8,10 @@ import { EmptyState } from "@/components/ui/EmptyState";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { MarkdownContent } from "@/components/ui/MarkdownContent";
 import { getCategory, getCategoryParams } from "@/data/categories";
-import { getToolsByCategory } from "@/data/tools";
+import { getLiveToolsByCategory, getToolsByCategory } from "@/data/tools";
 import { getPageContent } from "@/lib/content";
 import { buildBreadcrumbs, categoryPath, toolPath } from "@/lib/routes";
-import { collectionPageJsonLd } from "@/lib/seo/json-ld";
+import { itemListJsonLd, webPageJsonLd } from "@/lib/seo/json-ld";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const dynamicParams = false;
@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: PageProps<"/ferramentas/[cate
     description: category.seo.description,
     path: categoryPath(category.slug),
     keywords: category.keywords,
-    // Categorias sem ferramentas ainda são conteúdo raso: fora do índice até terem itens.
-    index: getToolsByCategory(category.slug).length > 0,
+    // Categorias sem ferramentas funcionando são conteúdo raso: fora do índice até terem itens.
+    index: getLiveToolsByCategory(category.slug).length > 0,
   });
 }
 
@@ -61,16 +61,16 @@ export default async function CategoryPage({ params }: PageProps<"/ferramentas/[
 
       {content && <MarkdownContent html={content.html} className="mt-12" />}
 
-      {tools.length > 0 && (
-        <JsonLd
-          data={collectionPageJsonLd({
-            name: category.name,
-            description: category.seo.description,
-            path,
-            items: tools.map((tool) => ({ name: tool.name, path: toolPath(tool) })),
-          })}
-        />
-      )}
+      <JsonLd
+        data={webPageJsonLd({
+          type: "CollectionPage",
+          path,
+          name: category.name,
+          description: category.seo.description,
+          mainEntity:
+            tools.length > 0 ? itemListJsonLd(tools.map((tool) => ({ name: tool.name, path: toolPath(tool) }))) : undefined,
+        })}
+      />
     </Container>
   );
 }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ToolShell } from "@/components/tool/ToolShell";
 import { getCategory } from "@/data/categories";
-import { getRelatedTools, getTool, getToolParams } from "@/data/tools";
+import { getRelatedTools, getTool, getToolParams, isToolLive } from "@/data/tools";
 import { getPageContent } from "@/lib/content";
 import { toolPath } from "@/lib/routes";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: PageProps<"/ferramentas/[cate
     description: tool.seo.description,
     path: toolPath(tool),
     keywords: tool.keywords,
+    index: isToolLive(tool),
   });
 }
 

@@ -1,4 +1,5 @@
 import { categories } from "./categories";
+import { infoPagePath, infoPages } from "./pages";
 import { categoryPath } from "@/lib/routes";
 import { TOOLS_BASE_PATH } from "@/lib/constants";
 
@@ -17,4 +18,9 @@ export const mainNavigation: NavItem[] = [
 export const footerNavigation: NavItem[] = categories.map((category) => ({
   label: category.name,
   href: categoryPath(category.slug),
+}));
+
+export const institutionalNavigation: NavItem[] = infoPages.map((page) => ({
+  label: page.slug === "privacidade" ? "Política de privacidade" : page.name,
+  href: infoPagePath(page),
 }));

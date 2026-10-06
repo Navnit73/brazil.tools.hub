@@ -13,12 +13,14 @@ import { TOOLS_BASE_PATH } from "@/lib/constants";
 import { getPageContent } from "@/lib/content";
 import { buildBreadcrumbs, categoryPath } from "@/lib/routes";
 import { getSearchItems } from "@/lib/search";
-import { collectionPageJsonLd } from "@/lib/seo/json-ld";
+import { itemListJsonLd, webPageJsonLd } from "@/lib/seo/json-ld";
 import { buildMetadata } from "@/lib/seo/metadata";
 
-const title = "Todas as ferramentas online grátis";
+const title = "Todas as ferramentas online grátis: PDF e imagem";
+const heading = "Todas as ferramentas online grátis";
+const intro = "Ferramentas gratuitas de PDF, imagem, calculadoras e Pix, direto no navegador e sem cadastro.";
 const description =
-  "Lista completa de ferramentas online gratuitas: imagem, PDF, calculadoras, Pix, documentos, WhatsApp e texto.";
+  "Lista completa de ferramentas online gratuitas: PDF, imagem, calculadoras e Pix. Junte, converta e comprima arquivos direto no navegador. Escolha a sua!";
 
 export const metadata: Metadata = buildMetadata({ title, description, path: TOOLS_BASE_PATH });
 
@@ -30,7 +32,7 @@ export default async function ToolsIndexPage() {
     <Container className="py-6 sm:py-8">
       <Breadcrumbs items={buildBreadcrumbs()} />
       <div className="mt-4">
-        <PageHeader title={title} description={description}>
+        <PageHeader title={heading} description={intro}>
           <div className="mt-6">
             <SearchTools items={getSearchItems()} />
           </div>
@@ -62,11 +64,12 @@ export default async function ToolsIndexPage() {
       {content && <MarkdownContent html={content.html} className="mt-12" />}
 
       <JsonLd
-        data={collectionPageJsonLd({
-          name: title,
-          description,
+        data={webPageJsonLd({
+          type: "CollectionPage",
           path: TOOLS_BASE_PATH,
-          items: categories.map((category) => ({ name: category.name, path: categoryPath(category.slug) })),
+          name: heading,
+          description,
+          mainEntity: itemListJsonLd(categories.map((category) => ({ name: category.name, path: categoryPath(category.slug) }))),
         })}
       />
     </Container>

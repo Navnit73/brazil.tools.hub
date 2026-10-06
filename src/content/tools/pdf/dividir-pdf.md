@@ -1,4 +1,4 @@
-# Dividir PDF Online Grátis
+# Dividir PDF online grátis
 
 Use nossa ferramenta para **dividir PDF** em vários arquivos menores: uma página por arquivo, a cada N páginas ou pelos intervalos que você escolher. É a forma mais rápida de **separar PDF** em partes para enviar só o que importa, sem cadastro e sem instalar nada.
 

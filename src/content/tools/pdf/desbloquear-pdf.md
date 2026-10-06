@@ -1,4 +1,4 @@
-# Desbloquear PDF: Remover Senha Online Grátis
+# Desbloquear PDF: remover senha online grátis
 
 Use nossa ferramenta para **desbloquear PDF** e **remover a senha do PDF** quando você já sabe qual é. Digite a senha uma vez e baixe uma cópia que abre direto, sem pedir senha e sem restrições para imprimir, copiar ou editar. Grátis, sem cadastro, e o arquivo não sai do seu dispositivo.
 

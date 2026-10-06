@@ -1,4 +1,4 @@
-# Editor de Imagem Online Grátis: Edite Suas Fotos em Segundos
+# Editor de imagem online grátis: edite suas fotos em segundos
 
 Precisa cortar uma foto para o perfil, girar uma imagem que ficou deitada ou reduzir o tamanho de um arquivo? Nosso **editor de imagem** funciona direto no navegador, é gratuito e não exige cadastro nem instalação. Escolha a foto, faça os ajustes e baixe o resultado em poucos cliques.
 

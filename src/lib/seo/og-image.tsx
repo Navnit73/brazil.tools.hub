@@ -30,3 +30,23 @@ export function renderOgImage({ eyebrow, title }: { eyebrow: string; title: stri
     ogImageSize,
   );
 }
+
+/** Marca (mesmo desenho de `app/icon.svg`) em PNG, para apple-touch-icon, manifest e logo do JSON-LD. */
+export function renderLogo(size: number) {
+  return new ImageResponse(
+    (
+      <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", background: colors.primary }}>
+        <svg width={size * 0.75} height={size * 0.75} viewBox="4 6 24 24">
+          <path
+            d="M9 10h9a4 4 0 0 1 0 8H9zM9 18h10a4 4 0 0 1 0 8H9z"
+            fill="none"
+            stroke="#fff"
+            strokeWidth={2.5}
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+    ),
+    { width: size, height: size },
+  );
+}

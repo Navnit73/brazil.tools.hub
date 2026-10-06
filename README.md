@@ -1,4 +1,4 @@
-# Brasil Tools Hub
+# PDFImagem
 
 Site de ferramentas online em pt-BR. Next.js 16 (App Router), TypeScript, Tailwind CSS v4, daisyUI 5 e MUI (só onde agrega).
 
@@ -12,7 +12,7 @@ npm run lint
 Defina a URL pública em `.env.local` (usada em canonical, sitemap, Open Graph e JSON-LD):
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://seudominio.com.br
+NEXT_PUBLIC_SITE_URL=https://pdfimagem.com
 ```
 
 ## Estrutura

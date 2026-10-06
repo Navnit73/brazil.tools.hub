@@ -1,4 +1,4 @@
-# Converter PDF em Imagem Online Grátis
+# Converter PDF em imagem online grátis
 
 Use nossa ferramenta para **converter PDF em imagem**: cada página vira uma imagem **JPG** ou **PNG**, na resolução que você escolher. Serve para enviar uma página pelo WhatsApp, postar em redes sociais, inserir em uma apresentação ou **salvar o PDF como imagem** para imprimir. Grátis, sem cadastro, e o arquivo não sai do seu dispositivo.
 

@@ -23,8 +23,19 @@ function toHtml(tokens: Token[], links: Links): string {
   return Parser.parse(Object.assign(tokens, { links }));
 }
 
+const ENTITIES: Record<string, string> = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " " };
+
+/** Texto puro: o resultado é renderizado como texto pelo React e no JSON-LD, então as entidades do marked são decodificadas. */
 function stripTags(html: string): string {
-  return html.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+  return html
+    .replace(/<[^>]+>/g, "")
+    .replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (match, code: string) => {
+      if (code[0] !== "#") return ENTITIES[code.toLowerCase()] ?? match;
+      const point = code[1].toLowerCase() === "x" ? parseInt(code.slice(2), 16) : parseInt(code.slice(1), 10);
+      return String.fromCodePoint(point);
+    })
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 /** Extrai perguntas `###` da seção `## Perguntas frequentes` para o schema FAQPage. */

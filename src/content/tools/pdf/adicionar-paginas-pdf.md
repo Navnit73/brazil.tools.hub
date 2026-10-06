@@ -1,4 +1,4 @@
-# Adicionar Páginas ao PDF Online Grátis
+# Adicionar páginas ao PDF online grátis
 
 Use nossa ferramenta para **adicionar páginas ao PDF**: insira páginas de outro PDF ou páginas em branco no início, no final ou depois da página que você escolher. Antes de salvar, ainda dá para reordenar, girar e excluir páginas. Grátis, sem cadastro, e os arquivos não saem do seu dispositivo.
 

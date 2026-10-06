@@ -1,4 +1,4 @@
-# Comprimir Imagem Online Grátis
+# Comprimir imagem online grátis
 
 Use nosso **compactador de imagens online** para deixar suas fotos mais leves em segundos. Escolha a qualidade ou informe o tamanho máximo em KB, compare o antes e o depois e baixe o resultado. É grátis, não precisa de cadastro e as imagens não saem do seu dispositivo.
 

@@ -1,4 +1,4 @@
-# Remover Páginas de PDF Online Grátis
+# Remover páginas de PDF online grátis
 
 Use nossa ferramenta para **remover páginas de PDF**: páginas em branco, folhas repetidas, capas ou anexos que você não quer enviar. Toque nas páginas para marcar, confira a prévia e baixe o documento sem elas. Grátis, sem cadastro, e o arquivo não sai do seu dispositivo.
 

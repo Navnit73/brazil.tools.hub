@@ -1,4 +1,4 @@
-# Converter PNG para PDF Online Grátis
+# Converter PNG para PDF online grátis
 
 Use nossa ferramenta para **converter PNG para PDF** e juntar prints, capturas de tela e imagens em um único documento, uma por página. Ideal para transformar um **print em PDF** e enviar como comprovante, anexar em um formulário ou organizar várias telas em um arquivo só. É grátis, sem cadastro, e as imagens não saem do seu dispositivo.
 

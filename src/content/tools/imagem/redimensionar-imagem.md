@@ -1,4 +1,4 @@
-# Redimensionar Imagem Online Grátis
+# Redimensionar imagem online grátis
 
 Use nosso **redimensionador de imagem online** para mudar o tamanho de qualquer foto em segundos. Informe a largura e a altura em pixels ou use porcentagem, veja a prévia na hora e baixe o resultado. É grátis, não precisa de cadastro e suas imagens não saem do seu dispositivo.
 

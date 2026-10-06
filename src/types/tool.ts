@@ -18,6 +18,8 @@ export interface Tool {
   component: ToolComponentKey;
   /** Slugs (`categoria/ferramenta`) de ferramentas relacionadas. */
   related: ToolRef[];
+  /** Página publicada antes de a ferramenta funcionar: fica com `noindex` e fora do sitemap. */
+  comingSoon?: boolean;
   /** Data da última atualização relevante (ISO 8601), usada no sitemap. */
   updatedAt: string;
 }

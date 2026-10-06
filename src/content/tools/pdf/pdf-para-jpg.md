@@ -1,4 +1,4 @@
-# Converter PDF para JPG Online Grátis
+# Converter PDF para JPG online grátis
 
 Use nossa ferramenta para **converter PDF para JPG**: cada página do documento vira uma imagem que você pode enviar pelo WhatsApp, postar ou inserir em outro arquivo. Escolha a resolução, as páginas e baixe. É grátis, sem cadastro, e o PDF não sai do seu dispositivo.
 

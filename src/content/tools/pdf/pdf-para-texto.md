@@ -1,4 +1,4 @@
-# Converter PDF para Texto Online Grátis
+# Converter PDF para texto online grátis
 
 Use nossa ferramenta para **extrair texto de PDF** e copiar o conteúdo com um toque ou salvar como arquivo **.txt**. É útil quando o PDF não deixa selecionar direito, quando você quer reaproveitar um trecho em outro documento ou precisa só do texto, sem a formatação. Grátis, sem cadastro, e o arquivo não sai do seu dispositivo.
 

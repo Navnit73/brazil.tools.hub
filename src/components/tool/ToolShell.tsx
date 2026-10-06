@@ -3,7 +3,8 @@ import { FaqList } from "@/components/ui/FaqList";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { MarkdownContent } from "@/components/ui/MarkdownContent";
 import type { PageContent } from "@/lib/content";
-import { faqJsonLd, toolJsonLd } from "@/lib/seo/json-ld";
+import { isToolLive } from "@/data/tools";
+import { toolAppId, toolJsonLd, webPageJsonLd } from "@/lib/seo/json-ld";
 import { toolPath } from "@/lib/routes";
 import type { Category } from "@/types/category";
 import type { Tool } from "@/types/tool";
@@ -22,8 +23,19 @@ interface ToolShellProps {
 export function ToolShell({ tool, category, content, related }: ToolShellProps) {
   const path = toolPath(tool);
   const hasFaq = content !== null && content.faq.length > 0;
-  const structuredData = [toolJsonLd(tool, path)];
-  if (hasFaq) structuredData.push(faqJsonLd(content.faq));
+  const live = isToolLive(tool);
+  const structuredData = [
+    webPageJsonLd({
+      path,
+      name: tool.h1 ?? tool.name,
+      description: tool.seo.description,
+      about: live ? { "@id": toolAppId(path) } : undefined,
+      faq: hasFaq ? content.faq : undefined,
+      dateModified: tool.updatedAt,
+    }),
+    // Ferramenta ainda não funcional não é anunciada como aplicativo disponível.
+    ...(live ? [toolJsonLd(tool, path)] : []),
+  ];
 
   return (
     <Container className="pt-3 text-md-on-surface sm:pt-6">

@@ -27,6 +27,7 @@ export const tools: Tool[] = [
       "mudar tamanho da foto",
       "redimensionar jpg",
       "redimensionar png",
+      "reduzir foto",
     ],
     seo: {
       title: "Redimensionar imagem e foto online grátis",
@@ -82,7 +83,7 @@ export const tools: Tool[] = [
     category: "imagem",
     name: "Converter imagem",
     description: "Converta imagens entre JPG, PNG, WebP e AVIF, uma ou várias de uma vez.",
-    keywords: ["converter imagem", "converter png para jpg", "converter webp para jpg", "converter para avif"],
+    keywords: ["converter imagem", "converter png para jpg", "converter webp para jpg", "converter para avif", "foto para jpg"],
     seo: {
       title: "Converter imagem online: JPG, PNG, WebP e AVIF",
       description:
@@ -114,6 +115,239 @@ export const tools: Tool[] = [
     component: "image/jpg-to-webp",
     related: ["imagem/comprimir-imagem", "imagem/converter-imagem", "imagem/redimensionar-imagem"],
     updatedAt: "2026-10-06",
+  },
+  {
+    slug: "foto-para-oab",
+    category: "imagem",
+    name: "Foto para OAB",
+    h1: "Foto 3x4 para a carteira da OAB",
+    description:
+      "Recorte sua foto no tamanho 3x4 para a carteira da OAB, com guia do rosto, e baixe em JPG pronta para enviar à seccional.",
+    keywords: [
+      "foto para oab",
+      "foto oab",
+      "foto 3x4 oab",
+      "foto carteira oab",
+      "foto para carteira da oab",
+      "foto da carteira da oab",
+      "foto 3x4 para carteira da oab",
+      "foto advogado oab",
+    ],
+    seo: {
+      title: "Foto 3x4 para OAB online grátis: carteira da OAB",
+      description:
+        "Faça a foto 3x4 para a carteira da OAB online e grátis: enquadre o rosto com o guia, ajuste as cores e baixe em JPG. Sem cadastro e sem enviar a foto.",
+    },
+    component: "image/photo-oab",
+    related: ["imagem/enem-foto", "imagem/redimensionar-imagem", "imagem/comprimir-imagem"],
+    updatedAt: "2026-10-17",
+  },
+  {
+    slug: "enem-foto",
+    category: "imagem",
+    name: "Foto para o ENEM",
+    h1: "Foto para o ENEM: inscrição online",
+    description:
+      "Recorte sua foto no padrão de documento para a inscrição do ENEM, vestibulares e concursos, com guia do rosto, e baixe em JPG.",
+    keywords: [
+      "enem foto",
+      "foto do enem",
+      "foto para enem",
+      "foto para o enem",
+      "foto pro enem",
+      "foto 3x4 para enem",
+      "foto para vestibular",
+      "foto para inscrição online",
+      "foto para concurso público",
+    ],
+    seo: {
+      title: "Foto para o ENEM online grátis: foto da inscrição",
+      description:
+        "Prepare a foto do ENEM online e grátis: enquadre o rosto e os ombros com o guia, ajuste o brilho e baixe em JPG. Serve também para vestibular e concurso.",
+    },
+    component: "image/photo-enem",
+    related: ["imagem/foto-para-oab", "imagem/redimensionar-imagem", "imagem/comprimir-imagem"],
+    updatedAt: "2026-10-17",
+  },
+  {
+    slug: "foto-3x4-online",
+    category: "imagem",
+    name: "Foto 3x4 online",
+    h1: "Foto 3x4 online grátis com fundo branco",
+    description:
+      "Recorte sua foto no tamanho 3x4, deixe o fundo branco com IA e baixe em JPG ou na folha 10x15 com 9 fotos para imprimir.",
+    keywords: [
+      "foto 3x4 online",
+      "foto 3x4 online grátis",
+      "foto 3x4 online fundo branco grátis",
+      "foto 3x4 gratuito online",
+      "3x4 online",
+      "foto 3 4 online",
+      "site foto 3x4",
+      "imprimir foto 3x4",
+    ],
+    seo: {
+      title: "Foto 3x4 online grátis com fundo branco",
+      description:
+        "Faça foto 3x4 online grátis: enquadre o rosto, deixe o fundo branco com IA e baixe em JPG ou na folha 10x15 para imprimir. Sem marca-d'água e sem cadastro.",
+    },
+    component: "image/photo-3x4",
+    related: ["imagem/fundo-transparente", "imagem/foto-para-oab", "imagem/enem-foto"],
+    updatedAt: "2026-10-17",
+  },
+  {
+    slug: "fundo-transparente",
+    category: "imagem",
+    name: "Fundo transparente",
+    h1: "Fundo transparente online: remover fundo da imagem",
+    description:
+      "Remova o fundo de fotos com IA ou tire uma cor de fundo sólida de logos e produtos. Baixe em PNG transparente ou com fundo branco.",
+    keywords: [
+      "fundo transparente online",
+      "fundo transparente online grátis",
+      "remover fundo da imagem",
+      "tirar fundo de foto",
+      "png fundo transparente",
+      "fundo branco foto online",
+      "fundo branco para fotos online",
+    ],
+    seo: {
+      title: "Fundo transparente online grátis: remover fundo",
+      description:
+        "Deixe o fundo transparente online e grátis: IA para fotos de pessoas e remoção por cor para logos. Baixe em PNG ou com fundo branco, sem enviar nada.",
+    },
+    component: "image/remove-background",
+    related: ["imagem/foto-3x4-online", "imagem/converter-imagem", "imagem/comprimir-imagem"],
+    updatedAt: "2026-10-17",
+  },
+  {
+    slug: "melhorar-qualidade-foto",
+    category: "imagem",
+    name: "Melhorar qualidade da foto",
+    h1: "Melhorar a qualidade da foto online",
+    description:
+      "Aumente a nitidez, corrija contraste e cores, reduza o ruído e amplie fotos em 2× ou 4×, com prévia antes e depois.",
+    keywords: [
+      "melhorar qualidade da foto",
+      "melhor resolução de imagem online",
+      "site que melhora a qualidade da foto",
+      "site que melhora a qualidade da imagem",
+      "nitidez foto online",
+      "desborrar imagem online",
+      "melhorar imagem online",
+      "remasterizar foto online",
+    ],
+    seo: {
+      title: "Melhorar qualidade da foto online grátis e nitidez",
+      description:
+        "Melhore a qualidade da foto online grátis: mais nitidez, contraste e cores corrigidos, menos ruído e resolução 2× ou 4×. Sem cadastro e sem enviar a foto.",
+    },
+    component: "image/enhance",
+    related: ["imagem/redimensionar-imagem", "imagem/editor-de-imagem", "imagem/comprimir-imagem"],
+    updatedAt: "2026-10-17",
+  },
+  {
+    slug: "foto-em-desenho",
+    category: "imagem",
+    name: "Foto em desenho",
+    h1: "Transformar foto em desenho online",
+    description:
+      "Transforme fotos em desenho a lápis, lápis colorido, desenho para colorir ou cartoon, com prévia na hora e download em JPG ou PNG.",
+    keywords: [
+      "foto em desenho online",
+      "transformar foto em desenho",
+      "foto para desenho online",
+      "foto desenho online",
+      "foto em desenho para colorir",
+      "foto em desenho a lápis",
+      "foto em cartoon",
+    ],
+    seo: {
+      title: "Foto em desenho online grátis: lápis e para colorir",
+      description:
+        "Transforme foto em desenho online grátis: lápis, lápis colorido, desenho para colorir ou cartoon. Prévia na hora, sem cadastro e sem enviar a foto.",
+    },
+    component: "image/sketch",
+    related: ["imagem/foto-polaroid", "imagem/editor-de-imagem", "imagem/redimensionar-imagem"],
+    updatedAt: "2026-10-17",
+  },
+  {
+    slug: "marca-dagua",
+    category: "imagem",
+    name: "Marca d'água",
+    h1: "Colocar marca d'água em foto online",
+    description:
+      "Adicione texto ou logo como marca d'água em fotos e documentos, com posição, opacidade e mosaico. Até 20 imagens de uma vez.",
+    keywords: [
+      "marca d'água online",
+      "marca d'água online grátis",
+      "colocar marca d'água em foto",
+      "marca d'água em imagem",
+      "marca d'água em documento",
+      "marca d'água com logo",
+      "colocar marca d'água em várias fotos",
+    ],
+    seo: {
+      title: "Marca d'água online grátis: texto ou logo em fotos",
+      description:
+        "Coloque marca d'água em fotos e documentos online grátis: texto ou logo, opacidade, posição e mosaico. Até 20 imagens, sem enviar nada. Experimente!",
+    },
+    component: "image/watermark",
+    related: ["imagem/comprimir-imagem", "imagem/editor-de-imagem", "imagem/redimensionar-imagem"],
+    updatedAt: "2026-10-17",
+  },
+  {
+    slug: "foto-polaroid",
+    category: "imagem",
+    name: "Foto polaroid",
+    h1: "Foto polaroid online: moldura e legenda",
+    description:
+      "Transforme fotos em polaroids com moldura, legenda manuscrita e efeito vintage, no tamanho real para imprimir em folha A4.",
+    keywords: [
+      "foto polaroid online",
+      "fazer foto polaroid",
+      "polaroid fotos online",
+      "foto estilo polaroid",
+      "imprimir fotos polaroid",
+      "moldura polaroid",
+    ],
+    seo: {
+      title: "Foto polaroid online grátis: moldura e legenda",
+      description:
+        "Faça foto polaroid online grátis: moldura clássica, Instax Square ou Mini, legenda manuscrita e efeito vintage. Imprima várias em A4. Sem cadastro.",
+    },
+    component: "image/polaroid",
+    related: ["imagem/foto-em-desenho", "imagem/foto-3x4-online", "imagem/editor-de-imagem"],
+    updatedAt: "2026-10-17",
+  },
+  {
+    // Uma página para quadro branco, lousa e "desenhar online" (mesma intenção: uma tela para desenhar).
+    slug: "quadro-branco-online",
+    category: "imagem",
+    name: "Quadro branco online",
+    h1: "Quadro branco online grátis para desenhar",
+    description:
+      "Desenhe, escreva e explique em um quadro branco ou lousa online com formas, setas, texto, ícones, imagens e tela cheia. Exporte em PNG ou SVG.",
+    keywords: [
+      "quadro branco online",
+      "lousa online",
+      "quadro de desenho online",
+      "desenhar online grátis",
+      "quadro para desenhar online",
+      "quadro branco virtual",
+      "lousa digital online",
+      "tela branca para desenhar",
+      "folha branca online",
+      "rabiscar online",
+    ],
+    seo: {
+      title: "Quadro branco online grátis: lousa para desenhar",
+      description:
+        "Quadro branco online grátis: desenhe com caneta, formas, setas, texto e mais de 100 ícones, use lousa ou quadriculado em tela cheia e exporte em PNG.",
+    },
+    component: "image/whiteboard",
+    related: ["imagem/foto-em-desenho", "imagem/editor-de-imagem", "imagem/marca-dagua"],
+    updatedAt: "2026-10-17",
   },
   {
     slug: "juntar-pdf",

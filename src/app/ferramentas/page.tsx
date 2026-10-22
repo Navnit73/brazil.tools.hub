@@ -8,7 +8,7 @@ import { ToolGrid } from "@/components/tool/ToolGrid";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { MarkdownContent } from "@/components/ui/MarkdownContent";
 import { categories } from "@/data/categories";
-import { getToolsByCategory } from "@/data/tools";
+import { getLiveToolsByCategory, getToolsByCategory } from "@/data/tools";
 import { TOOLS_BASE_PATH } from "@/lib/constants";
 import { getPageContent } from "@/lib/content";
 import { buildBreadcrumbs, categoryPath } from "@/lib/routes";
@@ -69,7 +69,12 @@ export default async function ToolsIndexPage() {
           path: TOOLS_BASE_PATH,
           name: heading,
           description,
-          mainEntity: itemListJsonLd(categories.map((category) => ({ name: category.name, path: categoryPath(category.slug) }))),
+          // Só categorias indexáveis (as mesmas do sitemap).
+          mainEntity: itemListJsonLd(
+            categories
+              .filter((category) => getLiveToolsByCategory(category.slug).length > 0)
+              .map((category) => ({ name: category.name, path: categoryPath(category.slug) })),
+          ),
         })}
       />
     </Container>

@@ -13,7 +13,7 @@ import { MarkdownContent } from "@/components/ui/MarkdownContent";
 import { seoConfig } from "@/config/seo";
 import { siteConfig } from "@/config/site";
 import { categories } from "@/data/categories";
-import { getToolsByCategory, tools } from "@/data/tools";
+import { getLiveToolsByCategory, getToolsByCategory, isToolLive, tools } from "@/data/tools";
 import { TOOLS_BASE_PATH } from "@/lib/constants";
 import { getPageContent } from "@/lib/content";
 import { categoryPath, toolPath } from "@/lib/routes";
@@ -123,8 +123,12 @@ export default async function HomePage() {
 
                 <dl className="mt-8 grid grid-cols-3 gap-2 sm:mt-10 sm:flex sm:flex-wrap sm:justify-center sm:gap-3 lg:justify-start">
                   {[
-                    { value: String(tools.length), label: "ferramentas" },
-                    { value: String(categories.length), label: "categorias" },
+                    // Só o que já funciona: ferramentas "em breve" e categorias vazias não contam.
+                    { value: String(tools.filter(isToolLive).length), label: "ferramentas" },
+                    {
+                      value: String(categories.filter((category) => getLiveToolsByCategory(category.slug).length > 0).length),
+                      label: "categorias",
+                    },
                     { value: "100%", label: "grátis" },
                   ].map((stat) => (
                     <div

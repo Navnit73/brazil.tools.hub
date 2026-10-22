@@ -38,6 +38,7 @@ export default async function CategoryPage({ params }: PageProps<"/ferramentas/[
   const tools = getToolsByCategory(category.slug);
   const content = await getPageContent(`categories/${category.slug}`);
   const path = categoryPath(category.slug);
+  const liveTools = getLiveToolsByCategory(category.slug);
 
   return (
     <Container className="py-6 sm:py-8">
@@ -67,8 +68,11 @@ export default async function CategoryPage({ params }: PageProps<"/ferramentas/[
           path,
           name: category.name,
           description: category.seo.description,
+          // Só ferramentas indexáveis (as em breve têm `noindex`).
           mainEntity:
-            tools.length > 0 ? itemListJsonLd(tools.map((tool) => ({ name: tool.name, path: toolPath(tool) }))) : undefined,
+            liveTools.length > 0
+              ? itemListJsonLd(liveTools.map((tool) => ({ name: tool.name, path: toolPath(tool) })))
+              : undefined,
         })}
       />
     </Container>

@@ -34,7 +34,9 @@ export function buildMetadata({ title, description, path, keywords, index = true
       canonical: path,
       languages: { [siteConfig.language]: path, "x-default": path },
     },
-    robots: index ? undefined : { index: false, follow: true },
+    // Indexável: a chave fica de fora para herdar as diretivas do layout (max-image-preview etc.);
+    // `robots: undefined` também substituiria o valor herdado, já que a mescla é rasa.
+    ...(!index && { robots: { index: false, follow: true } }),
     openGraph: {
       type: "website",
       locale: siteConfig.locale,
